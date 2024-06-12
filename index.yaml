@@ -1,0 +1,2106 @@
+apiVersion: v1
+entries:
+  data-space-connector:
+  - apiVersion: v2
+    created: "2024-06-12T13:40:17.909732375+02:00"
+    dependencies:
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: contract-management.deploymentEnabled
+      name: contract-management
+      repository: file://./charts/contract-management
+      version: 0.5.0
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.22
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.3.1
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.5.3
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.5.3
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 081ff1d9dadad36dbbfebd1d29471133c47c1f29c0c47c4b07d47ef3c69913d6
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-2.0.4.tgz
+    version: 2.0.4
+  - apiVersion: v2
+    created: "2024-06-12T13:40:17.843154784+02:00"
+    dependencies:
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: contract-management.deploymentEnabled
+      name: contract-management
+      repository: file://./charts/contract-management
+      version: 0.5.0
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.22
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.5.3
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.5.3
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: f6884c4eec334a7cef6e19c61e3892995d06640ddabf9dd6644270421d9af08f
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-2.0.3.tgz
+    version: 2.0.3
+  - apiVersion: v2
+    created: "2024-06-12T13:40:17.774355392+02:00"
+    dependencies:
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: contract-management.deploymentEnabled
+      name: contract-management
+      repository: file://./charts/contract-management
+      version: 0.5.0
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.22
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.5.3
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.5.3
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 0570da4e9420ccc254780952671075b589cee9e82e93377a3355b908c42409a1
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-2.0.2.tgz
+    version: 2.0.2
+  - apiVersion: v2
+    created: "2024-06-12T13:40:17.711747653+02:00"
+    dependencies:
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: contract-management.deploymentEnabled
+      name: contract-management
+      repository: file://./charts/contract-management
+      version: 0.5.0
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.22
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.5.3
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.0.4
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 3bcce31dac4d486cf6c814f66f388d4d002381dfd5f76d0591609c545da4bbb2
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-2.0.1.tgz
+    version: 2.0.1
+  - apiVersion: v2
+    created: "2024-06-12T13:40:17.664952012+02:00"
+    dependencies:
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: contract-management.deploymentEnabled
+      name: contract-management
+      repository: file://./charts/contract-management
+      version: 0.5.0
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.22
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.5.3
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.0.4
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: a520a226cdc6476b5c3705d52a01fa09e3dc37ee00c56db29e56bcb83f8a538f
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-2.0.0.tgz
+    version: 2.0.0
+  - apiVersion: v2
+    created: "2024-06-12T13:40:17.61373987+02:00"
+    dependencies:
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: contract-management.deploymentEnabled
+      name: contract-management
+      repository: file://./charts/contract-management
+      version: 0.5.0
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.5.3
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.0.4
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: c118aa550754acb83cf24316008f041f65ebbc557b5790ff5401be444aaba903
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-1.0.0.tgz
+    version: 1.0.0
+  - apiVersion: v2
+    created: "2024-06-12T13:40:16.947485996+02:00"
+    dependencies:
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: contract-management.deploymentEnabled
+      name: contract-management
+      repository: file://./charts/contract-management
+      version: 0.5.0
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.5.3
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.0.4
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 8e7d218998bd8d79c89508321b8b84d656c8265683a06a510721dad9b6d9e64d
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.11.7.tgz
+    version: 0.11.7
+  - apiVersion: v2
+    created: "2024-06-12T13:40:16.888644705+02:00"
+    dependencies:
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: contract-management.deploymentEnabled
+      name: contract-management
+      repository: file://./charts/contract-management
+      version: 0.5.0
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.5.3
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.0.4
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: f708f0839ef068ddc45b86c9c0b1fe415eb7470cb9c4d6ae1c4bffc56ed90052
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.11.6.tgz
+    version: 0.11.6
+  - apiVersion: v2
+    created: "2024-06-12T13:40:16.826412813+02:00"
+    dependencies:
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: contract-management.deploymentEnabled
+      name: contract-management
+      repository: file://./charts/contract-management
+      version: 0.5.0
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.5.3
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.0.4
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: e63d4049fda6fc257b939b90b4ca2a1aef8dc6bed08e47e017fc0b428e1b6008
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.11.5.tgz
+    version: 0.11.5
+  - apiVersion: v2
+    created: "2024-06-12T13:40:16.763315713+02:00"
+    dependencies:
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: contract-management.deploymentEnabled
+      name: contract-management
+      repository: file://./charts/contract-management
+      version: 0.5.0
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.5.3
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.0.4
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 00cf5eb293852223907502829c9cf49cf1b751409e6992b1e9b98ed81861ba6f
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.11.4.tgz
+    version: 0.11.4
+  - apiVersion: v2
+    created: "2024-06-12T13:40:16.712883369+02:00"
+    dependencies:
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: contract-management.deploymentEnabled
+      name: contract-management
+      repository: file://./charts/contract-management
+      version: 0.5.0
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.5.3
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.0.4
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 9d7b6dcab180500f2c76465ee98ff9b884222ab8b91c201e1d1e2a7a329f9536
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.11.3.tgz
+    version: 0.11.3
+  - apiVersion: v2
+    created: "2024-06-12T13:40:16.657394457+02:00"
+    dependencies:
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: contract-management.deploymentEnabled
+      name: contract-management
+      repository: file://./charts/contract-management
+      version: 0.5.0
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.5.3
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.0.4
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 525286945c6e03119a8cb4da265372deb97c85ea74c65f935c8808874639af7d
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.11.2.tgz
+    version: 0.11.2
+  - apiVersion: v2
+    created: "2024-06-12T13:40:16.608878409+02:00"
+    dependencies:
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: contract-management.deploymentEnabled
+      name: contract-management
+      repository: file://./charts/contract-management
+      version: 0.5.0
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.5.3
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.0.4
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 805d6d1665c426447c2b387ca3de1bc1c46811b0845c22b1dbb99cab26f32a55
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.11.1.tgz
+    version: 0.11.1
+  - apiVersion: v2
+    created: "2024-06-12T13:40:16.557586256+02:00"
+    dependencies:
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: contract-management.deploymentEnabled
+      name: contract-management
+      repository: file://./charts/contract-management
+      version: 0.5.0
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.5.3
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.0.4
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 2e11813cedc8f0515ceb6cfb158447da808d9b92f778b76cee50522e5ffa1eac
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.11.0.tgz
+    version: 0.11.0
+  - apiVersion: v2
+    created: "2024-06-12T13:40:16.494640521+02:00"
+    dependencies:
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.0.4
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: contract-management.deploymentEnabled
+      name: contract-management
+      repository: file://./charts/contract-management
+      version: 0.5.0
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.5.3
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 386dbff7bc5c4af9122746ce72c593c4c54f8e3b82d8484e0822dc1c3a889d0b
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.10.0.tgz
+    version: 0.10.0
+  - apiVersion: v2
+    created: "2024-06-12T13:40:17.565295967+02:00"
+    dependencies:
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.0.4
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.3.2
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 3c87c252c27c8efc354c736f1b39e3bd3416b9b4acb67e906714fda35e422902
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.9.0.tgz
+    version: 0.9.0
+  - apiVersion: v2
+    created: "2024-06-12T13:40:17.503123578+02:00"
+    dependencies:
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.0.3
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.3.2
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 027e1e1d4ebc01e681b7793e619e4be153f9807bd44ebced2beeec495fd76e1d
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.8.0.tgz
+    version: 0.8.0
+  - apiVersion: v2
+    created: "2024-06-12T13:40:17.446341071+02:00"
+    dependencies:
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.3.2
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.0.3
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 285a521cca5adc7d899e7092e0f8b9d106e02788c6ed2fd042804f8f3c7d98b4
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.7.2.tgz
+    version: 0.7.2
+  - apiVersion: v2
+    created: "2024-06-12T13:40:17.391623011+02:00"
+    dependencies:
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.3.2
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.0.3
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 3476f1c768ae4ec5f2283675779e31df791469d1a53984814fa55cc39704242d
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.7.1.tgz
+    version: 0.7.1
+  - apiVersion: v2
+    created: "2024-06-12T13:40:17.350350475+02:00"
+    dependencies:
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.0.3
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.3.2
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 1eb448a3f992a53996d29f6de656920fdac46e7347c5b7e6d0b185a44c1948f8
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.7.0.tgz
+    version: 0.7.0
+  - apiVersion: v2
+    created: "2024-06-12T13:40:17.306559741+02:00"
+    dependencies:
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.0.3
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.3.2
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: fb6ccdba80ec74d023328df8da9b05ef27f6e894d1f33124ad04793b668aabd2
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.6.1.tgz
+    version: 0.6.1
+  - apiVersion: v2
+    created: "2024-06-12T13:40:17.265491629+02:00"
+    dependencies:
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.0.3
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.3.2
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 65d2c59e2c5360c70a096eee1696c2dba2525ac483527a3d37910a40e8462d59
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.6.0.tgz
+    version: 0.6.0
+  - apiVersion: v2
+    created: "2024-06-12T13:40:17.214692975+02:00"
+    dependencies:
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.0.3
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.3.2
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 8316fe3021c4b9978137616fd75ecfe0b42cd2c10abd5674ccea032e87ae22a3
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.5.1.tgz
+    version: 0.5.1
+  - apiVersion: v2
+    created: "2024-06-12T13:40:17.166338651+02:00"
+    dependencies:
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.1.0
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.3.2
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: c60e32c65cfc7926e1e9262ca74d11d0857f7bfbb99e69c58ff1a9057920ed10
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.5.0.tgz
+    version: 0.5.0
+  - apiVersion: v2
+    created: "2024-06-12T13:40:17.118145902+02:00"
+    dependencies:
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.3.2
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 05b254ada25a4fc7ce4aef7fc95b2647b54a66ce87e94cd58e1caf027487f341
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v2
+    created: "2024-06-12T13:40:17.075481787+02:00"
+    dependencies:
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.3.2
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 0f48ccf2f4403c9777de743217ad1339f41608c814fadeb8987c4cba367bf5c0
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.3.2.tgz
+    version: 0.3.2
+  - apiVersion: v2
+    created: "2024-06-12T13:40:17.035447802+02:00"
+    dependencies:
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.3
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.3.2
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.16
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 36c466a32f933b74ab17afd835b08ecb57685faa8e79f238317879933c94485b
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
+    created: "2024-06-12T13:40:16.392340329+02:00"
+    dependencies:
+    - name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    - name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.3
+    - name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.1
+    - name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.1.0
+    - name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.3
+    - name: walt-id
+      repository: file://./charts/walt-id
+      version: 0.0.16
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 275b0723c30a3a449ea4e4693d3b50bfce13c6a46bfa6e04cd2594088f4a25f2
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    created: "2024-06-12T13:40:16.352709844+02:00"
+    dependencies:
+    - name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    - name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.3
+    - name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.1
+    - name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.1.0
+    - name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.2
+    - name: walt-id
+      repository: file://./charts/walt-id
+      version: 0.0.16
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 86e6bdb11456e8ab4ea958c436b3d0edf44687daa81ceee3e20b9187e3e25505
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.0.1.tgz
+    version: 0.0.1
+  - apiVersion: v2
+    created: "2024-06-12T13:40:16.32242101+02:00"
+    dependencies:
+    - name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    - name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.3
+    - name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.1
+    - name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.1.0
+    - name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.2
+    - name: walt-id
+      repository: file://./charts/walt-id
+      version: 0.0.16
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: a40df3fb7698fb9f28ba5b732a26f4a7bc25ab9515b62e07de45b0c9d407376d
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-0.0.1-PRE-1.tgz
+    version: 0.0.1-PRE-1
+  wallet:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-06-12T13:40:17.909910239+02:00"
+    description: A Helm chart for Kubernetes
+    digest: d018460986cb7892cca91d268eac9bcbc1abcc8274986c60edbefc8eaf03f705
+    name: wallet
+    type: application
+    urls:
+    - wallet-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-06-12T13:40:16.291654787+02:00"

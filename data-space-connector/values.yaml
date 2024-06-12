@@ -1,0 +1,74 @@
+source: https://github.com/FIWARE-Ops/data-space-connector
+release: demo
+destination_namespace: &destination dsc-demo
+purpose: &purpose dsc-env
+branch: &branch main
+secretsEnabled: &secretsEnabled false
+host: &host
+tlsSecret: &tlsSecret
+
+applications:
+
+  - name: mysql
+    enabled: true
+    source_path: applications/mysql
+    source_ref: *branch
+    destination: *destination
+    helm_values:
+    - values.yaml
+
+  - name: mongodb
+    enabled: true
+    source_path: applications/mongodb
+    source_ref: *branch
+    destination: *destination
+    helm_values:
+    - values.yaml
+
+  - name: postgres
+    enabled: true
+    source_path: applications/postgres
+    source_ref: *branch
+    destination: *destination
+    helm_values:
+    - values.yaml
+
+  - name: orion
+    enabled: true
+    source_path: applications/orion
+    source_ref: *branch
+    destination: *destination
+    helm_values:
+    - values.yaml
+
+  - name: credentials-config-service
+    enabled: true
+    source_path: applications/credentials-config-service
+    source_ref: *branch
+    destination: *destination
+    helm_values:
+    - values.yaml
+
+  - name: trusted-issuers-list
+    enabled: true
+    source_path: applications/trusted-issuers-list
+    source_ref: *branch
+    destination: *destination
+    helm_values:
+    - values.yaml
+
+  - name: walt-id
+    enabled: true
+    source_path: applications/walt-id
+    source_ref: *branch
+    destination: *destination
+    helm_values:
+    - values.yaml
+
+  - name: verifier
+    enabled: true
+    source_path: applications/verifier
+    source_ref: *branch
+    destination: *destination
+    helm_values:
+    - values.yaml
