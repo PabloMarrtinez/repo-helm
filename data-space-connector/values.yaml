@@ -72,3 +72,11 @@ applications:
     destination: *destination
     helm_values:
     - values.yaml
+
+  - name: wallet
+    enabled: true
+    source_path: applications/wallet-ssikit
+    source_ref: *branch
+    destination: *destination
+    helm_values:
+    - values.yaml
