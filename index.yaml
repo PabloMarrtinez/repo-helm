@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   data-space-connector:
   - apiVersion: v2
-    created: "2024-06-13T10:44:06.785373531+02:00"
+    created: "2024-06-13T12:35:28.883290464+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -74,10 +74,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-2.0.4.tgz
+    - oldtgz/data-space-connector-2.0.4.tgz
     version: 2.0.4
   - apiVersion: v2
-    created: "2024-06-13T10:44:06.7314237+02:00"
+    created: "2024-06-13T12:35:28.827194263+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -149,10 +149,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-2.0.3.tgz
+    - oldtgz/data-space-connector-2.0.3.tgz
     version: 2.0.3
   - apiVersion: v2
-    created: "2024-06-13T10:44:06.68049468+02:00"
+    created: "2024-06-13T12:35:28.766042419+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -224,10 +224,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-2.0.2.tgz
+    - oldtgz/data-space-connector-2.0.2.tgz
     version: 2.0.2
   - apiVersion: v2
-    created: "2024-06-13T10:44:06.630161123+02:00"
+    created: "2024-06-13T12:35:28.714287644+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -299,10 +299,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-2.0.1.tgz
+    - oldtgz/data-space-connector-2.0.1.tgz
     version: 2.0.1
   - apiVersion: v2
-    created: "2024-06-13T10:44:06.577482101+02:00"
+    created: "2024-06-13T12:35:28.66458527+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -374,10 +374,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-2.0.0.tgz
+    - oldtgz/data-space-connector-2.0.0.tgz
     version: 2.0.0
   - apiVersion: v2
-    created: "2024-06-13T10:44:06.527475881+02:00"
+    created: "2024-06-13T12:35:28.61963653+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -449,10 +449,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-1.0.0.tgz
+    - oldtgz/data-space-connector-1.0.0.tgz
     version: 1.0.0
   - apiVersion: v2
-    created: "2024-06-13T10:44:05.873865564+02:00"
+    created: "2024-06-13T12:35:27.923689656+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -524,10 +524,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.11.7.tgz
+    - oldtgz/data-space-connector-0.11.7.tgz
     version: 0.11.7
   - apiVersion: v2
-    created: "2024-06-13T10:44:05.829751754+02:00"
+    created: "2024-06-13T12:35:27.874363391+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -599,10 +599,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.11.6.tgz
+    - oldtgz/data-space-connector-0.11.6.tgz
     version: 0.11.6
   - apiVersion: v2
-    created: "2024-06-13T10:44:05.785199346+02:00"
+    created: "2024-06-13T12:35:27.820289583+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -674,10 +674,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.11.5.tgz
+    - oldtgz/data-space-connector-0.11.5.tgz
     version: 0.11.5
   - apiVersion: v2
-    created: "2024-06-13T10:44:05.737121946+02:00"
+    created: "2024-06-13T12:35:27.77441135+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -749,10 +749,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.11.4.tgz
+    - oldtgz/data-space-connector-0.11.4.tgz
     version: 0.11.4
   - apiVersion: v2
-    created: "2024-06-13T10:44:05.687612996+02:00"
+    created: "2024-06-13T12:35:27.731766304+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -824,10 +824,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.11.3.tgz
+    - oldtgz/data-space-connector-0.11.3.tgz
     version: 0.11.3
   - apiVersion: v2
-    created: "2024-06-13T10:44:05.639448081+02:00"
+    created: "2024-06-13T12:35:27.689025096+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -899,10 +899,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.11.2.tgz
+    - oldtgz/data-space-connector-0.11.2.tgz
     version: 0.11.2
   - apiVersion: v2
-    created: "2024-06-13T10:44:05.596238798+02:00"
+    created: "2024-06-13T12:35:27.647145833+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -974,10 +974,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.11.1.tgz
+    - oldtgz/data-space-connector-0.11.1.tgz
     version: 0.11.1
   - apiVersion: v2
-    created: "2024-06-13T10:44:05.552689242+02:00"
+    created: "2024-06-13T12:35:27.600606454+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -1049,10 +1049,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.11.0.tgz
+    - oldtgz/data-space-connector-0.11.0.tgz
     version: 0.11.0
   - apiVersion: v2
-    created: "2024-06-13T10:44:05.508471435+02:00"
+    created: "2024-06-13T12:35:27.558234031+02:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -1124,10 +1124,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.10.0.tgz
+    - oldtgz/data-space-connector-0.10.0.tgz
     version: 0.10.0
   - apiVersion: v2
-    created: "2024-06-13T10:44:06.47715033+02:00"
+    created: "2024-06-13T12:35:28.574281584+02:00"
     dependencies:
     - condition: dsba-pdp.deploymentEnabled
       name: dsba-pdp
@@ -1195,10 +1195,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.9.0.tgz
+    - oldtgz/data-space-connector-0.9.0.tgz
     version: 0.9.0
   - apiVersion: v2
-    created: "2024-06-13T10:44:06.430523889+02:00"
+    created: "2024-06-13T12:35:28.520924568+02:00"
     dependencies:
     - condition: dsba-pdp.deploymentEnabled
       name: dsba-pdp
@@ -1266,10 +1266,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.8.0.tgz
+    - oldtgz/data-space-connector-0.8.0.tgz
     version: 0.8.0
   - apiVersion: v2
-    created: "2024-06-13T10:44:06.381321126+02:00"
+    created: "2024-06-13T12:35:28.476530563+02:00"
     dependencies:
     - condition: mysql.deploymentEnabled
       name: mysql
@@ -1337,10 +1337,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.7.2.tgz
+    - oldtgz/data-space-connector-0.7.2.tgz
     version: 0.7.2
   - apiVersion: v2
-    created: "2024-06-13T10:44:06.327329266+02:00"
+    created: "2024-06-13T12:35:28.429195463+02:00"
     dependencies:
     - condition: mysql.deploymentEnabled
       name: mysql
@@ -1408,10 +1408,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.7.1.tgz
+    - oldtgz/data-space-connector-0.7.1.tgz
     version: 0.7.1
   - apiVersion: v2
-    created: "2024-06-13T10:44:06.284581783+02:00"
+    created: "2024-06-13T12:35:28.379010409+02:00"
     dependencies:
     - condition: tm-forum-api.deploymentEnabled
       name: tm-forum-api
@@ -1479,10 +1479,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.7.0.tgz
+    - oldtgz/data-space-connector-0.7.0.tgz
     version: 0.7.0
   - apiVersion: v2
-    created: "2024-06-13T10:44:06.240774181+02:00"
+    created: "2024-06-13T12:35:28.320145327+02:00"
     dependencies:
     - condition: tm-forum-api.deploymentEnabled
       name: tm-forum-api
@@ -1550,10 +1550,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.6.1.tgz
+    - oldtgz/data-space-connector-0.6.1.tgz
     version: 0.6.1
   - apiVersion: v2
-    created: "2024-06-13T10:44:06.190283417+02:00"
+    created: "2024-06-13T12:35:28.261274844+02:00"
     dependencies:
     - condition: tm-forum-api.deploymentEnabled
       name: tm-forum-api
@@ -1621,10 +1621,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.6.0.tgz
+    - oldtgz/data-space-connector-0.6.0.tgz
     version: 0.6.0
   - apiVersion: v2
-    created: "2024-06-13T10:44:06.142946886+02:00"
+    created: "2024-06-13T12:35:28.211523898+02:00"
     dependencies:
     - condition: tm-forum-api.deploymentEnabled
       name: tm-forum-api
@@ -1692,10 +1692,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.5.1.tgz
+    - oldtgz/data-space-connector-0.5.1.tgz
     version: 0.5.1
   - apiVersion: v2
-    created: "2024-06-13T10:44:06.091671502+02:00"
+    created: "2024-06-13T12:35:28.157513941+02:00"
     dependencies:
     - condition: tm-forum-api.deploymentEnabled
       name: tm-forum-api
@@ -1763,10 +1763,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.5.0.tgz
+    - oldtgz/data-space-connector-0.5.0.tgz
     version: 0.5.0
   - apiVersion: v2
-    created: "2024-06-13T10:44:06.049227282+02:00"
+    created: "2024-06-13T12:35:28.097872174+02:00"
     dependencies:
     - condition: mongodb.deploymentEnabled
       name: mongodb
@@ -1830,10 +1830,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.4.0.tgz
+    - oldtgz/data-space-connector-0.4.0.tgz
     version: 0.4.0
   - apiVersion: v2
-    created: "2024-06-13T10:44:06.005214242+02:00"
+    created: "2024-06-13T12:35:28.052103698+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -1897,10 +1897,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.3.2.tgz
+    - oldtgz/data-space-connector-0.3.2.tgz
     version: 0.3.2
   - apiVersion: v2
-    created: "2024-06-13T10:44:05.957978781+02:00"
+    created: "2024-06-13T12:35:28.011881882+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -1964,10 +1964,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.3.1.tgz
+    - oldtgz/data-space-connector-0.3.1.tgz
     version: 0.3.1
   - apiVersion: v2
-    created: "2024-06-13T10:44:05.421741671+02:00"
+    created: "2024-06-13T12:35:27.475275455+02:00"
     dependencies:
     - name: mysql
       repository: file://./charts/mysql
@@ -2006,10 +2006,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.0.2.tgz
+    - oldtgz/data-space-connector-0.0.2.tgz
     version: 0.0.2
   - apiVersion: v2
-    created: "2024-06-13T10:44:05.394332241+02:00"
+    created: "2024-06-13T12:35:27.447608172+02:00"
     dependencies:
     - name: mysql
       repository: file://./charts/mysql
@@ -2048,10 +2048,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.0.1.tgz
+    - oldtgz/data-space-connector-0.0.1.tgz
     version: 0.0.1
   - apiVersion: v2
-    created: "2024-06-13T10:44:05.365631785+02:00"
+    created: "2024-06-13T12:35:27.417763804+02:00"
     dependencies:
     - name: mysql
       repository: file://./charts/mysql
@@ -2090,35 +2090,35 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.0.1-PRE-1.tgz
+    - oldtgz/data-space-connector-0.0.1-PRE-1.tgz
     version: 0.0.1-PRE-1
   fiware-platform:
   - apiVersion: v2
-    created: "2024-06-13T10:44:05.335626056+02:00"
+    created: "2024-06-13T12:35:27.378641681+02:00"
     dependencies:
     - condition: vcwaltid.deploymentEnabled
       name: vcwaltid
       repository: file://./charts/walt-id
       version: 0.0.16
     description: Helm chart to deploy the FIWARE Data pace Connector
-    digest: 295dae5409edf7999ec33697875e4cdb7070622473819aa662f4bc8edf9bb65f
+    digest: 51773cb920a705913a48e80b0273332a3c5e79798a5a98287b87ba8a58fa8e17
     maintainers:
     - email: dennis.wendland@fiware.org
       name: Dennis Wendland
     name: fiware-platform
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/fiware-platform-5.5.5.tgz
+    - fiware-platform-5.5.5.tgz
     version: 5.5.5
   wallet:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-13T10:44:06.785656585+02:00"
+    created: "2024-06-13T12:35:28.883407585+02:00"
     description: A Helm chart for Kubernetes
     digest: d018460986cb7892cca91d268eac9bcbc1abcc8274986c60edbefc8eaf03f705
     name: wallet
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/wallet-0.1.0.tgz
+    - oldtgz/wallet-0.1.0.tgz
     version: 0.1.0
-generated: "2024-06-13T10:44:05.324524878+02:00"
+generated: "2024-06-13T12:35:27.367510772+02:00"
