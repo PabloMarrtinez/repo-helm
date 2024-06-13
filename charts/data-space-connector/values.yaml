@@ -82,7 +82,7 @@ applications:
     - values.yaml
  
  
-#Sub-Chart configuration configuration
+argoApplications: false
  
 ccs:
   # Enable the deployment of application: ccs
