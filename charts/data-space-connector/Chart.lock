@@ -1,0 +1,6 @@
+dependencies:
+- name: vcwaltid
+  repository: file://./charts/walt-id
+  version: 0.0.16
+digest: sha256:a69a8e686041a8769484e1d583b818c3efd5b99425f8b3d51a37edf4ba047630
+generated: "2024-06-13T10:39:34.487294792+02:00"

@@ -1,0 +1,6 @@
+dependencies:
+- name: vcverifier
+  repository: https://i4Trust.github.io/helm-charts
+  version: 1.0.9
+digest: sha256:cee9467c0a97e7cf32dac2a5842e3a6961a7492915686f311560124055c13a23
+generated: "2024-06-13T10:27:31.326052336+02:00"
