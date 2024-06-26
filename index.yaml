@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   data-space-connector:
   - apiVersion: v2
-    created: "2024-06-26T09:32:09.199728059+02:00"
+    created: "2024-06-26T09:50:06.581040013+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -64,8 +64,12 @@ entries:
       name: mysql
       repository: file://./charts/mysql
       version: 9.4.4
-    description: Helm chart to deploy the FIWARE Data Space Connector
-    digest: 081ff1d9dadad36dbbfebd1d29471133c47c1f29c0c47c4b07d47ef3c69913d6
+    - condition: mysql.deploymentEnabled
+      name: wallet
+      repository: file://./charts/wallet
+      version: 0.1.0
+    description: Helm chart to deploy a custom FIWARE Data Space Connector
+    digest: 9b18825ad91ac8c8b9c82ade7f9f9bd18878028ba2bab977146ce499d8ba57a1
     maintainers:
     - email: dennis.wendland@fiware.org
       name: Dennis Wendland
@@ -74,10 +78,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-2.0.4.tgz
-    version: 2.0.4
+    - https://pablomarrtinez.github.io/repo-helm/data-space-connector-3.0.0.tgz
+    version: 3.0.0
   - apiVersion: v2
-    created: "2024-06-26T09:32:07.770067455+02:00"
+    created: "2024-06-26T09:50:08.084281361+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -153,10 +157,85 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/data-space-connector-2.0.5.tgz
+    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-2.0.5.tgz
     version: 2.0.4
   - apiVersion: v2
-    created: "2024-06-26T09:32:09.147602078+02:00"
+    created: "2024-06-26T09:50:08.057554606+02:00"
+    dependencies:
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: contract-management.deploymentEnabled
+      name: contract-management
+      repository: file://./charts/contract-management
+      version: 0.5.0
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.22
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.3.1
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.5.3
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.5.3
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: 081ff1d9dadad36dbbfebd1d29471133c47c1f29c0c47c4b07d47ef3c69913d6
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-2.0.4.tgz
+    version: 2.0.4
+  - apiVersion: v2
+    created: "2024-06-26T09:50:07.998479939+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -231,7 +310,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-2.0.3.tgz
     version: 2.0.3
   - apiVersion: v2
-    created: "2024-06-26T09:32:09.095739232+02:00"
+    created: "2024-06-26T09:50:07.946334353+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -306,7 +385,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-2.0.2.tgz
     version: 2.0.2
   - apiVersion: v2
-    created: "2024-06-26T09:32:09.042407441+02:00"
+    created: "2024-06-26T09:50:07.892113718+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -381,7 +460,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-2.0.1.tgz
     version: 2.0.1
   - apiVersion: v2
-    created: "2024-06-26T09:32:08.99109989+02:00"
+    created: "2024-06-26T09:50:07.83703162+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -456,7 +535,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-2.0.0.tgz
     version: 2.0.0
   - apiVersion: v2
-    created: "2024-06-26T09:32:08.946770937+02:00"
+    created: "2024-06-26T09:50:07.791735457+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -531,7 +610,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-1.0.0.tgz
     version: 1.0.0
   - apiVersion: v2
-    created: "2024-06-26T09:32:08.275469457+02:00"
+    created: "2024-06-26T09:50:07.123783576+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -606,7 +685,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.11.7.tgz
     version: 0.11.7
   - apiVersion: v2
-    created: "2024-06-26T09:32:08.233509193+02:00"
+    created: "2024-06-26T09:50:07.074949277+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -681,7 +760,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.11.6.tgz
     version: 0.11.6
   - apiVersion: v2
-    created: "2024-06-26T09:32:08.190536994+02:00"
+    created: "2024-06-26T09:50:07.029626493+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -756,7 +835,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.11.5.tgz
     version: 0.11.5
   - apiVersion: v2
-    created: "2024-06-26T09:32:08.149595908+02:00"
+    created: "2024-06-26T09:50:06.984279594+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -831,7 +910,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.11.4.tgz
     version: 0.11.4
   - apiVersion: v2
-    created: "2024-06-26T09:32:08.10873322+02:00"
+    created: "2024-06-26T09:50:06.930933376+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -906,7 +985,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.11.3.tgz
     version: 0.11.3
   - apiVersion: v2
-    created: "2024-06-26T09:32:08.064803068+02:00"
+    created: "2024-06-26T09:50:06.8789424+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -981,7 +1060,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.11.2.tgz
     version: 0.11.2
   - apiVersion: v2
-    created: "2024-06-26T09:32:08.020130708+02:00"
+    created: "2024-06-26T09:50:06.838116076+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -1056,7 +1135,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.11.1.tgz
     version: 0.11.1
   - apiVersion: v2
-    created: "2024-06-26T09:32:07.978017775+02:00"
+    created: "2024-06-26T09:50:06.796194349+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -1131,7 +1210,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.11.0.tgz
     version: 0.11.0
   - apiVersion: v2
-    created: "2024-06-26T09:32:07.935447933+02:00"
+    created: "2024-06-26T09:50:06.744799326+02:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -1206,7 +1285,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.10.0.tgz
     version: 0.10.0
   - apiVersion: v2
-    created: "2024-06-26T09:32:08.900284441+02:00"
+    created: "2024-06-26T09:50:07.742186462+02:00"
     dependencies:
     - condition: dsba-pdp.deploymentEnabled
       name: dsba-pdp
@@ -1277,7 +1356,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.9.0.tgz
     version: 0.9.0
   - apiVersion: v2
-    created: "2024-06-26T09:32:08.852778146+02:00"
+    created: "2024-06-26T09:50:07.69503868+02:00"
     dependencies:
     - condition: dsba-pdp.deploymentEnabled
       name: dsba-pdp
@@ -1348,7 +1427,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.8.0.tgz
     version: 0.8.0
   - apiVersion: v2
-    created: "2024-06-26T09:32:08.808188662+02:00"
+    created: "2024-06-26T09:50:07.643754497+02:00"
     dependencies:
     - condition: mysql.deploymentEnabled
       name: mysql
@@ -1419,7 +1498,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.7.2.tgz
     version: 0.7.2
   - apiVersion: v2
-    created: "2024-06-26T09:32:08.758180197+02:00"
+    created: "2024-06-26T09:50:07.598367993+02:00"
     dependencies:
     - condition: mysql.deploymentEnabled
       name: mysql
@@ -1490,7 +1569,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.7.1.tgz
     version: 0.7.1
   - apiVersion: v2
-    created: "2024-06-26T09:32:08.713007765+02:00"
+    created: "2024-06-26T09:50:07.542804128+02:00"
     dependencies:
     - condition: tm-forum-api.deploymentEnabled
       name: tm-forum-api
@@ -1561,7 +1640,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.7.0.tgz
     version: 0.7.0
   - apiVersion: v2
-    created: "2024-06-26T09:32:08.659731397+02:00"
+    created: "2024-06-26T09:50:07.495157718+02:00"
     dependencies:
     - condition: tm-forum-api.deploymentEnabled
       name: tm-forum-api
@@ -1632,7 +1711,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.6.1.tgz
     version: 0.6.1
   - apiVersion: v2
-    created: "2024-06-26T09:32:08.605752637+02:00"
+    created: "2024-06-26T09:50:07.451240972+02:00"
     dependencies:
     - condition: tm-forum-api.deploymentEnabled
       name: tm-forum-api
@@ -1703,7 +1782,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.6.0.tgz
     version: 0.6.0
   - apiVersion: v2
-    created: "2024-06-26T09:32:08.557179013+02:00"
+    created: "2024-06-26T09:50:07.402775629+02:00"
     dependencies:
     - condition: tm-forum-api.deploymentEnabled
       name: tm-forum-api
@@ -1774,7 +1853,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.5.1.tgz
     version: 0.5.1
   - apiVersion: v2
-    created: "2024-06-26T09:32:08.508317235+02:00"
+    created: "2024-06-26T09:50:07.34621685+02:00"
     dependencies:
     - condition: tm-forum-api.deploymentEnabled
       name: tm-forum-api
@@ -1845,7 +1924,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.5.0.tgz
     version: 0.5.0
   - apiVersion: v2
-    created: "2024-06-26T09:32:08.456381141+02:00"
+    created: "2024-06-26T09:50:07.295283408+02:00"
     dependencies:
     - condition: mongodb.deploymentEnabled
       name: mongodb
@@ -1912,7 +1991,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.4.0.tgz
     version: 0.4.0
   - apiVersion: v2
-    created: "2024-06-26T09:32:08.41024224+02:00"
+    created: "2024-06-26T09:50:07.253074419+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -1979,7 +2058,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.3.2.tgz
     version: 0.3.2
   - apiVersion: v2
-    created: "2024-06-26T09:32:08.369886757+02:00"
+    created: "2024-06-26T09:50:07.213994725+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -2046,7 +2125,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.3.1.tgz
     version: 0.3.1
   - apiVersion: v2
-    created: "2024-06-26T09:32:07.854420119+02:00"
+    created: "2024-06-26T09:50:06.663823392+02:00"
     dependencies:
     - name: mysql
       repository: file://./charts/mysql
@@ -2088,7 +2167,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.0.2.tgz
     version: 0.0.2
   - apiVersion: v2
-    created: "2024-06-26T09:32:07.826180334+02:00"
+    created: "2024-06-26T09:50:06.636504722+02:00"
     dependencies:
     - name: mysql
       repository: file://./charts/mysql
@@ -2130,7 +2209,7 @@ entries:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/data-space-connector-0.0.1.tgz
     version: 0.0.1
   - apiVersion: v2
-    created: "2024-06-26T09:32:07.797964805+02:00"
+    created: "2024-06-26T09:50:06.608546768+02:00"
     dependencies:
     - name: mysql
       repository: file://./charts/mysql
@@ -2173,7 +2252,7 @@ entries:
     version: 0.0.1-PRE-1
   fiware-platform:
   - apiVersion: v2
-    created: "2024-06-26T09:32:09.211013315+02:00"
+    created: "2024-06-26T09:50:08.09554085+02:00"
     dependencies:
     - condition: vcwaltid.deploymentEnabled
       name: vcwaltid
@@ -2192,7 +2271,7 @@ entries:
   wallet:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-26T09:32:09.211125807+02:00"
+    created: "2024-06-26T09:50:08.095686935+02:00"
     description: A Helm chart for Kubernetes
     digest: d018460986cb7892cca91d268eac9bcbc1abcc8274986c60edbefc8eaf03f705
     name: wallet
@@ -2200,4 +2279,4 @@ entries:
     urls:
     - https://pablomarrtinez.github.io/repo-helm/oldtgz/wallet-0.1.0.tgz
     version: 0.1.0
-generated: "2024-06-26T09:32:07.742493524+02:00"
+generated: "2024-06-26T09:50:06.554012242+02:00"
