@@ -1,0 +1,33 @@
+{{- if .Values.api.core.route.enabled }}
+{{- $fullName := include "vcwaltid.fullname" . -}}
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: {{ include "vcwaltid.fullname" . }}-core
+  labels:
+    {{ include "vcwaltid.labels" . | nindent 4 }}
+  {{- if or .Values.api.core.route.annotations .Values.api.core.route.certificate }}
+  annotations:
+    {{- if .Values.api.core.route.certificate }}
+    cert-utils-operator.redhat-cop.io/certs-from-secret: {{ include "vcwaltid.fullname" . }}-tls-sec
+    {{- end }}
+    {{- with .Values.api.core.route.annotations }}
+      {{- toYaml . | nindent 4 }}
+      {{- end }}
+  {{- end }}
+spec:
+  port:
+    targetPort: {{ .Values.api.core.port }}
+  {{- if .Values.api.core.route.host }}
+  host: {{ .Values.api.core.route.host}}
+  {{- end }}
+  to:
+    kind: Service
+    name: {{ $fullName }}
+  {{- if .Values.api.core.route.tls }}
+  tls:
+  {{- with .Values.api.core.route.tls }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  {{- end }}
+{{- end }}

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+appVersion: 0.0.1
+kind: Deployment
+name: pep-pdp
+version: 0.0.1
+metadata:
+  name: pep-pdp
+  labels:
+    app: pep-pdp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pep-pdp
+  template:
+    metadata:
+      labels:
+        app: pep-pdp
+    spec:
+      containers:
+      - name: pep-pdp
+        image: nataliaborgonos123/pep-pdp:latest
+        command: ["/bin/sh", "-c"]
+        
