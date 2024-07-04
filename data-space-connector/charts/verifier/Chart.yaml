@@ -1,0 +1,10 @@
+apiVersion: v2
+appVersion: 4.0.0
+dependencies:
+- name: vcverifier
+  repository: https://i4trust.github.io/helm-charts
+  version: 1.0.22
+description: Chart holder for argo-cd
+name: verifier
+type: application
+version: 1.0.22

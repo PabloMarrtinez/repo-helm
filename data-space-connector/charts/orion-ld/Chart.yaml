@@ -1,0 +1,10 @@
+apiVersion: v2
+appVersion: 1.0.1
+dependencies:
+- name: orion
+  repository: https://fiware.github.io/helm-charts
+  version: 1.2.6
+description: Chart holder for argo-cd
+name: orion-ld
+type: application
+version: 1.2.6

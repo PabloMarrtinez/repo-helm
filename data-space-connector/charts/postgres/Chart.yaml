@@ -1,0 +1,10 @@
+apiVersion: v2
+appVersion: 15.1.0
+dependencies:
+- name: postgresql
+  repository: https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami
+  version: 12.1.13
+description: Chart holder for argo-cd
+name: postgres
+type: application
+version: 12.1.13

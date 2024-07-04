@@ -1,0 +1,40 @@
+{{- if .Values.ingress.tir.enabled -}}
+  {{- $fullName := include "til.fullname" . -}}
+  {{- $servicePort := .Values.service.port -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "til.fullname" . }}-tir
+  labels:
+    {{ include "til.labels" . | nindent 4 }}
+  {{- if .Values.ingress.tir.annotations }}
+  annotations:
+    {{- with .Values.ingress.tir.annotations }}
+      {{- toYaml . | nindent 4 }}
+      {{- end }}
+  {{- end }}
+spec:
+  {{- if .Values.ingress.tir.tls }}
+  tls:
+    {{- range .Values.ingress.tir.tls }}
+    - hosts:
+      {{- range .hosts }}
+      - {{ . | quote }}
+      {{- end }}
+      secretName: {{ .secretName }}
+    {{- end }}
+  {{- end }}
+  rules:
+  {{- range .Values.ingress.tir.hosts }}
+  - host: {{ .host | quote }}
+    http:
+      paths:
+      - path: /v4/issuers
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ $fullName }}
+            port:
+              number: {{ $servicePort }}
+  {{- end }}
+{{- end }}

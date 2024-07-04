@@ -1,0 +1,42 @@
+{{- if .Values.api.signatory.ingress.enabled -}}
+{{- $fullName := include "vcwaltid.fullname" . -}}
+{{- $servicePort := .Values.api.signatory.port -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "vcwaltid.fullname" . }}-signatory
+  labels:
+    {{ include "vcwaltid.labels" . | nindent 4 }}
+  {{- if .Values.api.signatory.ingress.annotations }}
+  annotations:
+    {{- with .Values.api.signatory.ingress.annotations }}
+      {{- toYaml . | nindent 4 }}
+      {{- end }}
+  {{- end }}
+spec:
+  {{- if .Values.api.signatory.ingress.tls }}
+  tls:
+    {{- range .Values.api.signatory.ingress.tls }}
+    - hosts:
+      {{- range .hosts }}
+        - {{ . | quote }}
+      {{- end }}
+      secretName: {{ .secretName }}
+    {{- end }}
+  {{- end }}
+  rules:
+  {{- range .Values.api.signatory.ingress.hosts }}
+    - host: {{ .host | quote }}
+      http:
+        paths:
+        {{- range .paths }}
+        - path: {{ . }}
+          pathType: Prefix
+          backend:
+            service:
+              name: {{ $fullName }}
+              port: 
+                number: {{ $servicePort }}
+        {{- end }}
+  {{- end }}
+{{- end }}

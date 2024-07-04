@@ -1,0 +1,264 @@
+# Default values for activation-service.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+## -- option to override the name config in the _helpers.tpl for the whole chart
+nameOverride: ""
+## -- option to override the fullname config in the _helpers.tpl for the whole chart
+fullnameOverride: ""
+
+## configuration for the k8s service to access the activation service
+service:
+  # -- service type
+  type: ClusterIP
+  # -- port to be used by the service
+  port: 8080
+  # -- addtional annotations, if required
+  annotations: {}
+
+# -- if a specific service account should be used, it can be configured here
+# ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
+serviceAccount:
+  # -- specifies if the account should be created
+  create: false
+
+## deployment specific configuration
+deployment:
+  # -- initial number of target replications, can be different if autoscaling is enabled
+  replicaCount: 1
+  # -- number of old replicas to be retained
+  revisionHistoryLimit: 3
+  ## configuration of the update strategy
+  updateStrategy:
+    # -- type of the update
+    type: RollingUpdate
+    # -- new pods will be added gradually
+    rollingUpdate:
+      # -- number of pods that can be created above the desired amount while updating
+      maxSurge: 1
+      # -- number of pods that can be unavailable while updating
+      maxUnavailable: 0
+  ## configuration of the image to be used
+  image:
+    # -- image name
+    # ref: https://hub.docker.com/r/i4trust/activation-service
+    repository: i4trust/activation-service
+    # -- tag of the image to be used
+    tag: 2.2.0
+    # -- specification of the image pull policy
+    pullPolicy: IfNotPresent
+  # -- additional labels for the deployment, if required
+  additionalLabels: {}
+  # -- additional annotations for the deployment, if required
+  additionalAnnotations: {}
+  ## Activation Service resource requests and limits, we leave the default empty to make that a concious choice by the user.
+  ## for the autoscaling to make sense, you should configure this.
+  # resources:
+    # limits:
+      # cpu: 100m
+      # memory: 128Mi
+    # requests:
+      # cpu: 100m
+      # memory: 128Mi
+  # -- selector template
+  # ref: https://kubernetes.io/docs/user-guide/node-selection/
+  nodeSelector: {}
+  # -- tolerations template
+  # ref: ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+  tolerations: []
+  # -- affinity template
+  # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
+  affinity: {}
+  ## liveness and readiness probes of the activation service, they will be evaluated against the version endpoint
+  # ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes
+  livenessProbe:
+    initialDelaySeconds: 20
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 30
+  readinessProbe:
+    initialDelaySeconds: 21
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 30
+
+## pod autoscaling configuration, use for automatic scaling of the pods
+autoscaling:
+  #  -- should autoscaling be enabled for the activation service
+  enabled: false
+  # -- minimum number of running pods
+  minReplicas: 1
+  # -- maximum number of running pods
+  maxReplicas: 10
+  # -- metrics to react on
+  metrics: []
+
+## openshift specific route definition. Will not work on plain k8s
+route:
+  ## -- should the deployment create openshift routes
+  enabled: false
+  # -- annotations to be added to the route
+  annotations: {}
+  # -- host to be used
+  # host: localhost
+  # -- tls configuration for the route
+  tls: {}
+  # termination: edge
+  # -- configuration for certificate generation.
+  # -- see: https://github.com/FIWARE-Ops/fiware-gitops/blob/master/doc/ROUTES.md
+  certificate: { }
+  #   issuer:
+  #     kind: ClusterIssuer
+  #     name: letsencrypt-aws-prod
+  
+## ingress configuration
+ingress:
+  # -- should there be an ingress to connect the activation service with the public internet
+  enabled: false
+  # -- annotations to be added to the ingress
+  annotations: {}
+    # kubernetes.io/ingress.class: "ambassador"
+    ## example annotations, allowing cert-manager to automatically create tls-certs and forcing everything to use ssl.
+    # kubernetes.io/tls-acme: "true"
+    # ingress.kubernetes.io/ssl-redirect: "true"
+  # -- all hosts to be provided
+  hosts: []
+    ## provide a hosts and the paths that should be available
+    # - host: localhost
+      # paths:
+      # - /
+  # -- configure the ingress' tls
+  tls: []
+    # - secretName: bae-as-tls
+      # hosts:
+        # - activation-service.fiware.org
+
+# Use values from existing secret as ENVs
+#existingSecretEnvs: ""
+
+## Configuration of activation service execution
+activationService:
+  # -- Listen port
+  port: 8080
+
+  # -- Number of (gunicorn) workers that should be created
+  workers: 1
+
+  # -- Maximum header size in bytes
+  maxHeaderSize: 32768
+
+  # -- Log Level
+  logLevel: "info"
+
+# Configuration for the Credential Config Service initiation
+ccs:
+  # -- Endpoint of the CCS
+  #endpoint: "http://credentials-config-service:8080/"
+  # -- Id of the service
+  id: "pdc-activation-service"
+  # -- Default scope to be used from scopes below, if none is provided
+  defaultOidcScope: "defaultScope"
+  # -- Credential configurations for particular scopes
+  oidcScopes:
+    defaultScope:
+      - type: "VerifiableDefaultCredential"
+        trustedParticipantsLists: [
+          "https://tir.fiware.dev"
+        ]
+        trustedIssuersLists: [
+          "https://til.fiware.dev"
+        ]
+    asWrite:
+      - type: "VerifiableCredential"
+        trustedParticipantsLists: [
+          "https://tir.fiware.dev"
+        ]
+        trustedIssuersLists: [
+          "https://til.fiware.dev"
+        ]
+
+## Activation Service configuration (inserted at config/as.yml)
+config:
+  # Client configuration
+  client:
+    # -- Client ID
+    id: "EU.EORI.NLPACKETDEL"
+    # -- Client key (PEM private key)
+    key: <pdc-private-key>
+    # -- Client certificate (PEM certificate chain)
+    crt: <pdc-certs>
+
+  ## Configuration of database
+  db:
+    # Use sqlite file database (make sure that the volume is writeable)
+    #useFile:
+    #  # Filename for DB SQLite file
+    #  filename: "as.db"
+    #  # If empty, will use app base path
+    #  filepath: ""
+    # -- Use sqlite in-memory database
+    useMemory: true
+    # Use URI to external DB (e.g., MySQL, PostgreSQL)
+    #useURI: ""
+    # -- Enable tracking of modifications
+    modTracking: false
+    # -- Enable SQL logging to stderr
+    echo: true
+
+  # Configuration for additional API keys to protect certain endpoints
+  apikeys:
+    # Config for iSHARE flow
+    ishare:
+      # -- API-Key Header name for iSHARE flow
+      headerName: "AS-API-KEY"
+      # -- API key for iSHARE flow (auto-generated if left empty)
+      apiKey: ""
+      # -- Enable API-Key requirement for iSHARE flow /token endpoint (API key will be required)
+      enabledToken: true
+      # -- Enable API-Key requirement for iSHARE flow /createpolicy endpoint (API key will be required)
+      enabledCreatePolicy: false
+    # Config for Trusted-Issuers-List flow
+    issuer:
+      # -- API-Key Header name for Trusted-Issuers-List flow
+      headerName: "AS-API-KEY"
+      # -- API key for Trusted-Issuers-List flow (auto-generated if left empty)
+      apiKey: ""
+      # -- Enable API-Key requirement for Trusted-Issuers-List flow /issuer endpoint (API key will be required)
+      enabledIssuer: true
+
+  ## Configuration of iSHARE authorisation registry
+  ar:
+    # -- Endpoint for token request
+    token: "https://ar.packetdelivery.net/connect/token"
+    # -- Endpoint for create policy requests
+    policy: "https://ar.packetdelivery.net/policy"
+    # -- Endpoint for delegation requests
+    delegation: "https://ar.packetdelivery.net/delegation"
+    # -- EORI of AR
+    id: "EU.EORI.NLPACKETDEL"
+
+  ## Configuration specific to Trusted Issuer List /issuer endpoint
+  issuer:
+    # -- clientId parameter
+    clientId: "pdc-activation-service"
+    # -- Provider DID
+    providerId: "did:key:some-key"
+    # -- URI of Trusted Issuers List service
+    tilUri: "http://til.internal"
+    # -- URI of verifier
+    verifierUri: "https://verifier.packetdelivery.net"
+    # -- samedevice flow path at verifier
+    samedevicePath: "/api/v1/samedevice"
+    # -- JWKS path at verifier
+    jwksPath: "/.well-known/jwks"
+    # -- Allowed algorithms for JWT signatures
+    algorithms:
+      - "ES256"
+    # Roles config
+    roles:
+      # -- Role for creating trusted issuer
+      createRole: "CREATE_ISSUER"
+      # -- Role for updating trusted issuer
+      updateRole: "UPDATE_ISSUER"
+      # -- Role for deleting trusted issuer
+      deleteRole: "DELETE_ISSUER"
