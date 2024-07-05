@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   data-space-connector:
   - apiVersion: v2
-    created: "2024-07-05T10:55:13.980683597+02:00"
+    created: "2024-07-05T13:17:52.682575602+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -73,7 +73,7 @@ entries:
       repository: file://./charts/pep-pdp
       version: 0.0.1
     description: Helm chart to deploy a custom FIWARE Data Space Connector
-    digest: a8b554be52f019b8b19468fc242d8f500ca9be6bee5db629e726558f7f88acab
+    digest: ae7fa7c791908823de34e6462c294c1a65c30a27de89a415dc4ecc9d0406db8a
     maintainers:
     - email: dennis.wendland@fiware.org
       name: Dennis Wendland
@@ -82,10 +82,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/file.tgz
+    - https://raw.githubusercontent.com/PabloMarrtinez/repo-helm/pep-pdp/file.tgz
     version: 7.0.0
   - apiVersion: v2
-    created: "2024-07-05T10:55:13.757770812+02:00"
+    created: "2024-07-05T13:17:52.603696508+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -161,6 +161,6 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://pablomarrtinez.github.io/repo-helm/data-space-connector-6.0.0.tgz
+    - https://raw.githubusercontent.com/PabloMarrtinez/repo-helm/pep-pdp/data-space-connector-6.0.0.tgz
     version: 6.0.0
-generated: "2024-07-05T10:55:13.524265861+02:00"
+generated: "2024-07-05T13:17:52.568079417+02:00"
