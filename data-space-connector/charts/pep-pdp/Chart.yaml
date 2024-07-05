@@ -19,6 +19,6 @@ spec:
     spec:
       containers:
       - name: pep-pdp
-        image: nataliaborgonos123/pep-pdp:latest
-        command: ["/bin/sh", "-c"]
+        image: ants-registry.inf.um.es/jesusgar/connector-docker-images/pep-pdp:latest
+        command: ["java", "-jar", "demo.jar"]
         

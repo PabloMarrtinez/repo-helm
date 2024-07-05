@@ -1,5 +1,5 @@
 pep-pdp:
-  image: nataliaborgonos123/pep-pdp
+  image: ants-registry.inf.um.es/jesusgar/connector-docker-images/pep-pdp
   imageTag: latest
   containerPort: 8088
   env:
