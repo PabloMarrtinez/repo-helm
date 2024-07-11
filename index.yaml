@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   data-space-connector:
   - apiVersion: v2
-    created: "2024-07-11T09:40:36.672117377+02:00"
+    created: "2024-07-11T15:46:08.814512257+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -82,10 +82,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - https://raw.githubusercontent.com/PabloMarrtinez/repo-helm/pep-pdp/file.tgz
+    - file.tgz
     version: 7.0.0
   - apiVersion: v2
-    created: "2024-07-05T13:17:52.603696508+02:00"
+    created: "2024-07-11T15:46:08.700609664+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -164,7 +164,7 @@ entries:
     - data-space-connector-6.0.0.tgz
     version: 6.0.0
   - apiVersion: v2
-    created: "2024-07-11T09:40:36.709811523+02:00"
+    created: "2024-07-11T15:46:08.729333297+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -242,7 +242,4 @@ entries:
     urls:
     - dts-3-0-3.tgz
     version: 3.0.3
-generated: "2024-07-11T09:40:36.63566802+02:00"
-    - https://raw.githubusercontent.com/PabloMarrtinez/repo-helm/pep-pdp/data-space-connector-6.0.0.tgz
-    version: 6.0.0
-generated: "2024-07-05T13:17:52.568079417+02:00"
+generated: "2024-07-11T15:46:08.675550538+02:00"
