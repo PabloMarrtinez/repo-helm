@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   data-space-connector:
   - apiVersion: v2
-    created: "2024-07-12T10:32:42.790528193+02:00"
+    created: "2024-07-12T11:29:30.062690752+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -68,8 +68,8 @@ entries:
       name: wallet
       repository: file://./charts/wallet
       version: 0.1.0
-    description: Helm chart to deploy a custom FIWARE Data Space Connector
-    digest: 29e7478cfa60f84b2c7b3092553af91a24e2eace974fbcd26416fb4dcb13aadf
+    description: Pruebas Pablo
+    digest: ec0cfbfc40367fc4aa8f18b00cd810dc6ce0beaf9201084856e9a05b3d37b708
     maintainers:
     - email: dennis.wendland@fiware.org
       name: Dennis Wendland
@@ -78,6 +78,6 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - dts-3-0-4.tgz
-    version: 3.0.4
-generated: "2024-07-12T10:32:42.752967147+02:00"
+    - dts-3-0-5.tgz
+    version: 3.0.5
+generated: "2024-07-12T11:29:30.03434268+02:00"
