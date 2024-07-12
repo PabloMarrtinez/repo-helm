@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   data-space-connector:
   - apiVersion: v2
-    created: "2024-07-12T10:03:17.931458366+02:00"
+    created: "2024-07-12T10:23:53.129526254+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -81,7 +81,7 @@ entries:
     - data-space-connector-6.0.0.tgz
     version: 6.0.0
   - apiVersion: v2
-    created: "2024-07-12T10:03:17.958966582+02:00"
+    created: "2024-07-12T10:23:53.163645048+02:00"
     dependencies:
     - condition: orion-ld.deploymentEnabled
       name: orion-ld
@@ -159,4 +159,4 @@ entries:
     urls:
     - dts-3-0-4.tgz
     version: 3.0.4
-generated: "2024-07-12T10:03:17.90277614+02:00"
+generated: "2024-07-12T10:23:53.098688152+02:00"

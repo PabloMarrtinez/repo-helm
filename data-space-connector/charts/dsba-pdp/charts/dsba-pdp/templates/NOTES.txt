@@ -1,1 +1,0 @@
-DSBA-PDP is available at: {{ template "dsba-pdp.fullname" . }}:{{ .Values.service.port }}

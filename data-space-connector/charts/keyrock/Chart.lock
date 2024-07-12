@@ -1,6 +1,0 @@
-dependencies:
-- name: keyrock
-  repository: https://fiware.github.io/helm-charts
-  version: 0.7.5
-digest: sha256:de5aaceec074eece040714360cd58c9d50fb012d7159dc86a07fb83b3d43e2fd
-generated: "2024-03-26T10:03:38.979781782Z"
