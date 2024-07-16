@@ -1,0 +1,17 @@
+{{- if .Values.persistence.enabled }}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ include "vcwaltid.fullname" . }}
+  labels:
+    {{ include "vcwaltid.labels" . | nindent 4 }}
+spec:
+  {{- if .Values.persistence.pvc.storageClass }}
+  storageClassName: {{ .Values.persistence.pvc.storageClass }}
+  {{- end }}
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.persistence.pvc.size | quote }}
+{{- end }}

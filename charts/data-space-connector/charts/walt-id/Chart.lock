@@ -1,6 +1,0 @@
-dependencies:
-- name: vcwaltid
-  repository: https://i4Trust.github.io/helm-charts
-  version: 0.0.17
-digest: sha256:85bc722a6492fcbd6ba15ffe514da821a56c838fc47b006d1023a86a65993157
-generated: "2024-06-13T10:27:36.113816543+02:00"

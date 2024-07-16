@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "activation-service.fullname" . }}
+  labels:
+    {{- include "activation-service.labels" . | nindent 4 }}
+data:
+  as.yml: |-
+    {{- with .Values.config }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+---
+{{- if .Values.ccs.endpoint -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "activation-service.fullname" . }}-ccs
+  labels:
+    {{- include "activation-service.labels" . | nindent 4 }}
+data:
+  init.sh: |-
+    curl -X 'POST' \
+      '{{ .Values.ccs.endpoint }}service' \
+      -H 'accept: */*' \
+      -H 'Content-Type: application/json' \
+      -d '{
+      "id": "{{ .Values.ccs.id }}",
+      "defaultOidcScope": "{{ .Values.ccs.defaultOidcScope }}",
+      {{- if .Values.ccs.oidcScopes -}}
+      "oidcScopes": {{- toJson .Values.ccs.oidcScopes }}
+      {{- end }}
+    }'
+{{- end }}

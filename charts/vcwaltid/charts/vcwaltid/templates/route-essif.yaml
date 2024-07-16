@@ -1,0 +1,33 @@
+{{- if .Values.api.essif.route.enabled }}
+{{- $fullName := include "vcwaltid.fullname" . -}}
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: {{ include "vcwaltid.fullname" . }}-essif
+  labels:
+    {{ include "vcwaltid.labels" . | nindent 4 }}
+  {{- if or .Values.api.essif.route.annotations .Values.api.essif.route.certificate }}
+  annotations:
+    {{- if .Values.api.essif.route.certificate }}
+    cert-utils-operator.redhat-cop.io/certs-from-secret: {{ include "vcwaltid.fullname" . }}-tls-sec
+    {{- end }}
+    {{- with .Values.api.essif.route.annotations }}
+      {{- toYaml . | nindent 4 }}
+      {{- end }}
+  {{- end }}
+spec:
+  port:
+    targetPort: {{ .Values.api.essif.port }}
+  {{- if .Values.api.essif.route.host }}
+  host: {{ .Values.api.essif.route.host}}
+  {{- end }}
+  to:
+    kind: Service
+    name: {{ $fullName }}
+  {{- if .Values.api.essif.route.tls }}
+  tls:
+  {{- with .Values.api.essif.route.tls }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  {{- end }}
+{{- end }}

@@ -1,0 +1,42 @@
+{{- if .Values.api.essif.ingress.enabled -}}
+{{- $fullName := include "vcwaltid.fullname" . -}}
+{{- $servicePort := .Values.api.essif.port -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "vcwaltid.fullname" . }}-essif
+  labels:
+    {{ include "vcwaltid.labels" . | nindent 4 }}
+  {{- if .Values.api.essif.ingress.annotations }}
+  annotations:
+    {{- with .Values.api.essif.ingress.annotations }}
+      {{- toYaml . | nindent 4 }}
+      {{- end }}
+  {{- end }}
+spec:
+  {{- if .Values.api.essif.ingress.tls }}
+  tls:
+    {{- range .Values.api.essif.ingress.tls }}
+    - hosts:
+      {{- range .hosts }}
+        - {{ . | quote }}
+      {{- end }}
+      secretName: {{ .secretName }}
+    {{- end }}
+  {{- end }}
+  rules:
+  {{- range .Values.api.essif.ingress.hosts }}
+    - host: {{ .host | quote }}
+      http:
+        paths:
+        {{- range .paths }}
+        - path: {{ . }}
+          pathType: Prefix
+          backend:
+            service:
+              name: {{ $fullName }}
+              port: 
+                number: {{ $servicePort }}
+        {{- end }}
+  {{- end }}
+{{- end }}

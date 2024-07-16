@@ -1,0 +1,6 @@
+dependencies:
+- name: contract-management
+  repository: https://fiware.github.io/helm-charts
+  version: 0.5.0
+digest: sha256:e0e6297880877ad5ce900b296f89dcc7572e63e9f55ea256d5e56b10d339dbb1
+generated: "2024-03-26T10:03:32.401162246Z"
