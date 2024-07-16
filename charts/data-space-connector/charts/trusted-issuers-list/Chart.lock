@@ -1,6 +1,0 @@
-dependencies:
-- name: trusted-issuers-list
-  repository: https://fiware.github.io/helm-charts
-  version: 0.1.0
-digest: sha256:770e986a348e760bec6859d741e35790b089ca32ce88a2346172ba4e9f3b3761
-generated: "2024-06-13T10:27:25.61666341+02:00"

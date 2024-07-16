@@ -1,6 +1,0 @@
-dependencies:
-- name: orion
-  repository: https://fiware.github.io/helm-charts
-  version: 1.2.2
-digest: sha256:ba905d576c5674bf558071383397b65b5868d63a617de510a039b084fe8a1999
-generated: "2024-06-13T10:27:06.756515274+02:00"

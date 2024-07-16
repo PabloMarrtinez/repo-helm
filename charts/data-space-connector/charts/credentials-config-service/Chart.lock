@@ -1,6 +1,0 @@
-dependencies:
-- name: credentials-config-service
-  repository: https://fiware.github.io/helm-charts
-  version: 0.0.1
-digest: sha256:32d0232f0b004452e4251cd10ae0f1fe4accaaba1323ac526543718f92778fd2
-generated: "2024-06-13T10:26:32.848525259+02:00"
