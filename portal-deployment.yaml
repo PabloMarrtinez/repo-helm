@@ -1,0 +1,89 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portal-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: portal
+  template:
+    metadata:
+      labels:
+        app: portal
+    spec:
+      initContainers:
+      - name: add-ca-cert
+        image: busybox
+        command: ['sh', '-c', 'cat /ca-cert/tls.crt >> /usr/share/ca-certificates/ca-certificates.crt']
+        volumeMounts:
+        - name: ca-cert
+          mountPath: /ca-cert
+        - name: shared-volume
+          mountPath: /usr/share/ca-certificates
+      containers:
+      - name: pdc-portal
+        image: quay.io/i4trust/pdc-portal:2.9.0 
+        imagePullPolicy: Always # Set image pull policy to Always
+        ports:
+        - containerPort: 7000
+        env:
+        - name: DEBUG
+          value: "portal:*"
+        volumeMounts:
+        - name: config-volume
+          mountPath: /home/portal/config
+        - name: shared-volume
+          mountPath: /etc/ssl/certs
+      volumes:
+      - name: config-volume
+        configMap:
+          name: portal-config
+      - name: ca-cert
+        secret:
+          secretName: verifier-ips-dsba-tls
+          items:
+          - key: tls.crt
+            path: tls.crt
+      - name: shared-volume
+        emptyDir: {}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: portal-service
+spec:
+  selector:
+    app: portal
+  ports:
+  - protocol: TCP
+    port: 7000
+    targetPort: 7000
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: portal-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    # Add any other necessary annotations
+spec:
+  rules:
+  - host: portal.testing1.k8s-cluster.tango.rid-intrasoft.eu # Replace with your domain
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: portal-service
+            port:
+              number: 7000
+  # Uncomment and configure if you want to enable TLS/SSL
+  # tls:
+  # - hosts:
+  #   - satellite.example.com
+  #   secretName: your-tls-secret
