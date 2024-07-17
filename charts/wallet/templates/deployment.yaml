@@ -21,6 +21,7 @@ spec:
         args: 
           - |
             echo '127.0.0.1 umu-verifier umu-issuer umu-webWallet' >> /etc/hosts
+            /app/ssikit.sh fullApi
             tail -f
         env:
         - name: ISSUER_PORT
