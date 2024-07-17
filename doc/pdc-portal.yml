@@ -1,0 +1,65 @@
+# Configuration for Packet Delivery Portal application
+
+# Title of application
+title: "TANGO Portal"
+
+# Client configuration
+client:
+  # Client ID
+  id: "EU.EORI.TANGOCLIENT"
+  # Client key (PEM private key)
+  key:  -----BEGIN PRIVATE KEY-----
+      
+        -----END PRIVATE KEY-----
+
+  # Client certificate (PEM certificate chain)
+  crt:  -----BEGIN CERTIFICATE-----
+        
+        -----END CERTIFICATE-----
+        -----BEGIN CERTIFICATE-----
+       
+        -----END CERTIFICATE-----
+        -----BEGIN CERTIFICATE-----
+       
+        -----END CERTIFICATE-----
+
+
+# Configuration for external access
+external:
+  # Host (Hostname for external access)
+  host:  http://portal.testing1.k8s-cluster.tango.rid-intrasoft.eu
+
+# OIDC configuration
+oidc:
+  # Path for OIDC redirect callback
+  redirect_path: "/openid_connect1.0/return"
+  # ACR values
+  acr: "urn:http://eidas.europa.eu/LoA/NotNotified/high"
+
+# Context Broker configuration
+cb:
+  # Endpoint of (PEP/PDP protected) NGSI-LD API (via OIDC flow)
+  endpoint: "https://localhost/ips/ngsi-ld/v1"
+  # Endpoint of (PEP/PDP protected) NGSI-LD API (via SIOP flow)
+  endpoint_siop: "https://ips-kong.testing1.k8s-cluster.tango.rid-intrasoft.eu/ips/ngsi-ld/v1"
+
+# Configuration of express web server
+express:
+  # Port (Internal port of the express web server)
+  port: 7000
+
+# Configuration for SIOP flow
+siop:
+  # SIOP flow enabled
+  enabled: true
+  # Redirect URI that the wallet will use to send the VC/VP
+  redirect_uri: https://ips-verifier.testing1.k8s-cluster.tango.rid-intrasoft.eu/api/v1/authenticationresponse
+  # Base uri of the verifier
+  verifier_uri: https://ips-verifier.testing1.k8s-cluster.tango.rid-intrasoft.eu
+  # DID of verifier
+  did: "did:web:ips.testing1.k8s-cluster.tango.rid-intrasoft.eu:did"
+  # Type of credential that the Verifier will accept
+  scope: "dsba.credentials.presentation.PacketDeliveryService"
+  # Show separate Login button which shows the JWT access token only after login
+  jwtOnlyEnabled: false
+
