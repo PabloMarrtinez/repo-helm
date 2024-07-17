@@ -67,4 +67,4 @@ dependencies:
 description: Pruebas Pablo
 name: data-space-connector
 type: application
-version: 3.0.7
+version: 3.0.8
