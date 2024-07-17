@@ -13,6 +13,10 @@
    ```
 
 > [!NOTE]
-> If the app needs to be changed beyond the configuration, it is necessary to deploy a new image and update it in the `portal-deployment.yml file.
-> Source code: https://github.com/i4Trust/pdc-portal/tree/main
+> If the app needs to be changed beyond the configuration, it is necessary to deploy a new image and update it in the `portal-deployment.yml file. 
+
+
+
+
+Source code: https://github.com/i4Trust/pdc-portal/tree/main
 
