@@ -1,0 +1,19 @@
+extends default
+
+block topnav
+  div.topnav
+    if (user)
+      block user
+
+block content
+  div.container
+    if (!sd)
+      block search
+    if (entities && !sd)
+      block entities
+    if (entity)
+      block entity
+    if (delivery)
+      block delivery
+    if (sd)
+      block sd

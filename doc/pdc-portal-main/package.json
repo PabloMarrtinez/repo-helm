@@ -1,0 +1,29 @@
+{
+  "name": "pdc-portal",
+  "version": "0.1.0",
+  "description": "Portal application for Packet Delivery Company",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dr. Dennis Wendland",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "debug": "^4.3.1",
+    "express": "^4.17.1",
+    "js-yaml": "^4.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "node-fetch": "^2.6.1",
+    "node-jose": "^2.0.0",
+    "path": "^0.12.7",
+    "pug": "^3.0.2",
+    "serve-favicon": "^2.5.0",
+    "uuid": "^8.3.2",
+    "qrcode": "1.5.1",
+    "express-session": "1.17.3",
+    "request":"2.88.2",
+    "node-cache": "5.1.2"
+  }
+}

@@ -1,0 +1,18 @@
+extends default
+
+block content
+  div.container-login
+    h1 Login
+    table(class='table-login' border='1' frame='void' rules='rows')
+      if siop
+        tr
+          td
+            a.button(href=`/loginSiop`) Login with VC
+      if siopJwtOnly
+        tr
+          td
+            a.button(href=`/loginSiop?jwtOnly=true`) Login with VC (display JWT access token only)
+      each i in idps
+        tr
+          td
+            a.button(href=`/login?idp=` + i.id) #{i.name}
