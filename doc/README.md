@@ -15,6 +15,8 @@
 > [!NOTE]
 > If the app needs to be changed beyond the configuration, it is necessary to deploy a new image and update it in the `portal-deployment.yml file. 
 
+> [!IMPORTANT]
+For local deployment use server-local.js instead of server.js as it bypasses SSL certificate.
 
 
 
