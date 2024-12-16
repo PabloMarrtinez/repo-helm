@@ -23,7 +23,8 @@ spec:
           mountPath: /usr/share/ca-certificates
       containers:
       - name: pdc-portal
-        image: quay.io/i4trust/pdc-portal:2.9.0 
+       # image: quay.io/i4trust/pdc-portal:2.9.0 
+        image:  nataliaborgonos123/pdc-portal:params
         imagePullPolicy: Always # Set image pull policy to Always
         ports:
         - containerPort: 7000

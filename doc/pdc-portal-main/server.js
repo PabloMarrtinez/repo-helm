@@ -38,6 +38,9 @@ app.use(session({
 global.portal_jwt = null;
 global.user_idp = null;
 
+//Capability Token store
+global.CTStore = new Map();
+
 const tokenCache = new NodeCache();
 
 // Prepare CRT
@@ -173,12 +176,236 @@ async function requestToken(code, jwt, idp) {
     
 }
 
-// GET delivery attributes
-async function get_delivery(delivery_id, req_session) {
+// POST delivery attributes
+async function get_delivery(delivery_id, query_params, json_body, req_session) {
     let result = {
 		err: null,
+		json_body:null,
 		delivery: null
     }
+    info("Json Body to POST to the resource: "+json_body);
+    info("Connecting to PEP-PDP Service...");
+    // Check if capability tokens map is empty
+	if (CTStore.size === 0) {
+	console.log("First Capability Token issued");
+   		 // Request the resource 
+                    const firstResponse = await fetch('http://peppdp-service/api/connector-access-token', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            didSP: "tangoUser",
+                            sar: {
+                                action: "POST",
+                                resource: delivery_id
+                            },
+                            didRequester: "did:example:123456789abcdefghi",
+                            accessToken: req_session.access_token 
+                        })
+                    });
+
+  if (!firstResponse.ok) {
+                        info("Failed to fetch from first API: " + firstResponse.statusText);
+                        return null;
+                    }
+                    
+                    //Receive the Capability Token
+                    const firstData = await firstResponse.json();
+                    info("Response from the first API: " + JSON.stringify(firstData));
+
+		    //Store Capability Token in the map
+		    
+		    //key - [action, resource, jwt, na] 
+		     let ar = firstData.ar;
+		      let action, resource;
+        	if (Array.isArray(ar) && ar.length > 0) {
+            action = ar[0].action;      
+            resource = ar[0].resource;  
+            console.log("Action:", action);
+            console.log("Resource:", resource);
+        }    
+		   
+		    let jwt_requester= req_session.access_token;
+		    console.log(jwt_requester); 
+		    
+		    //value - [expiration]
+		    let na=firstData.na;
+		    console.log(na); 
+		    
+		    let key = {
+        	    action: action,
+        	    resource: resource,
+        	    accessToken: jwt_requester,
+        	    na: na
+    		};
+    		
+		    CTStore.set(key, firstData);
+		    for (let [key, value] of CTStore) {
+    			console.log(`Clave: ${key}, Valor: ${value}`);
+		}
+		     const requestBody = {
+    ct: firstData,  // Capability Token received
+    sar: {
+        action: "POST",
+        resource: delivery_id
+    },
+    queryParameters:  JSON.parse(query_params),
+    jsonBody: JSON.parse(json_body)
+};
+console.log(JSON.parse(json_body));
+const secondResponse = await fetch('http://peppdp-service/api/access-with-token', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(requestBody)
+});
+
+                    if (!secondResponse.ok) {
+                        info("Failed to fetch from second API: " + secondResponse.statusText);
+                        return null;
+                    }
+
+                    const secondData = await secondResponse.text();
+                    info("Response from the second API: " + secondData);
+                    result.delivery = secondData; 
+                    return result;
+                    
+	} else {
+    		console.log("There are Capability Tokens stored, checking if the requester possess one of them...");
+    		let found = false;
+    		let capabilityToken = null;
+    CTStore.forEach((value, key) => {
+         let currentTime = Date.now();
+        // Check if the key matches the requester's information
+        if (key.action === "POST" && key.resource === delivery_id && key.accessToken === req_session.access_token && key.na >= currentTime) {
+            found = true;
+            console.log("Found Capability Token available for the requester");
+            
+            capabilityToken = value; 
+            console.log("Capability Token used:", capabilityToken);
+        }
+    });
+    if (found){  
+    		// Request the access with the Capability Token
+                    // Request the access with the Capability Token
+                const requestBody = {
+    ct: capabilityToken,  // Capability Token received
+    sar: {
+        action: "POST",
+        resource: delivery_id
+    },
+    queryParameters:  JSON.parse(json_body)
+};
+console.log(JSON.parse(json_body));
+const secondResponse = await fetch('http://peppdp-service/api/access-with-token', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(requestBody)
+});
+
+                    if (!secondResponse.ok) {
+                        info("Failed to fetch from second API: " + secondResponse.statusText);
+                        return null;
+                    }
+
+                    const secondData = await secondResponse.text();
+                    info("Response from the second API: " + secondData);
+                    result.delivery = secondData; 
+                    return result;
+                    
+    }else{
+    	console.log("The Map doesn't contain a Capability Token for that requester, issuing a new Capability Token...");
+    	 // Request the resource 
+                    const firstResponse = await fetch('http://peppdp-service/api/connector-access-token', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            didSP: "tangoUser",
+                            sar: {
+                                action: "POST",
+                                resource:  delivery_id
+                            },
+                            didRequester: "did:example:123456789abcdefghi",
+                            accessToken: req_session.access_token 
+                        })
+                    });
+
+  if (!firstResponse.ok) {
+                        info("Failed to fetch from first API: " + firstResponse.statusText);
+                        return null;
+                    }
+                    
+                    //Receive the Capability Token
+                    const firstData = await firstResponse.json();
+                    info("Response from the first API: " + JSON.stringify(firstData));
+
+		    //Store Capability Token in the map
+		    
+		    //key - [action, resource, jwt, na] 
+		     let ar = firstData.ar;
+		      let action, resource;
+        	if (Array.isArray(ar) && ar.length > 0) {
+            action = ar[0].action;      
+            resource = ar[0].resource;  
+            console.log("Action:", action);
+            console.log("Resource:", resource);
+        }    
+		   
+		    let jwt_requester= req_session.access_token;
+		    console.log(jwt_requester); 
+		    
+		    //value - [expiration]
+		    let na=firstData.na;
+		    console.log(na); 
+		    
+		    let key = {
+        	    action: action,
+        	    resource: resource,
+        	    accessToken: jwt_requester,
+        	    na: na
+    		};
+    		
+		    CTStore.set(key, firstData);
+		    for (let [key, value] of CTStore) {
+    			console.log(`Clave: ${key}, Valor: ${value}`);
+		}
+		    
+       const requestBody = {
+    ct: firstData,  // Capability Token received
+    sar: {
+        action: "POST",
+        resource: delivery_id
+    },
+    queryParameters:  JSON.parse(query_params),
+    jsonBody: JSON.parse(json_body)
+};
+console.log(JSON.parse(json_body));
+const secondResponse = await fetch('http://peppdp-service/api/access-with-token', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(requestBody)
+});
+
+                    if (!secondResponse.ok) {
+                        info("Failed to fetch from second API: " + secondResponse.statusText);
+                        return null;
+                    }
+
+                    const secondData = await secondResponse.text();
+                    info("Response from the second API: " + secondData);
+                    result.delivery = secondData; 
+                    return result;
+                    
+    	}   
+                    
     var path = req_session.cb_endpoint + '/entities/' + delivery_id;
     var url = new URL(path);
     url.searchParams.append('options', 'keyValues');
@@ -208,14 +435,334 @@ async function get_delivery(delivery_id, req_session) {
 	result.err = e;
 		return result;
     }
-    
+    }
 }
 
-async function get_entities(type, req_session) {
+//GET entities
+async function get_entities(type, json_body_get, req_session) {
 	let result = {
 		err: null,
+		json_body_get: null,
 		entities: null
     }
+    
+    info("Connecting to PEP-PDP Service...");
+    info("Json Body to deliver to the resource: "+json_body_get);
+    // Check if capability tokens map is empty
+	if (CTStore.size === 0) {
+	console.log("First Capability Token issued");
+   		 // Request the resource 
+                    const firstResponse = await fetch('http://peppdp-service/api/connector-access-token', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            didSP: "tangoUser",
+                            sar: {
+                                action: "GET",
+                                resource: type
+                            },
+                            didRequester: "did:example:123456789abcdefghi",
+                            accessToken: req_session.access_token 
+                        })
+                    });
+
+  if (!firstResponse.ok) {
+                        info("Failed to fetch from first API: " + firstResponse.statusText);
+                        return null;
+                    }
+                    
+                    //Receive the Capability Token
+                    const firstData = await firstResponse.json();
+                    info("Response from the first API: " + JSON.stringify(firstData));
+
+		    //Store Capability Token in the map
+		    
+		    //key - [action, resource, jwt, na] 
+		     let ar = firstData.ar;
+		      let action, resource;
+        	if (Array.isArray(ar) && ar.length > 0) {
+            action = ar[0].action;      
+            resource = ar[0].resource;  
+            console.log("Action:", action);
+            console.log("Resource:", resource);
+        }    
+		   
+		    let jwt_requester= req_session.access_token;
+		    console.log(jwt_requester); 
+		    
+		    //value - [expiration]
+		    let na=firstData.na;
+		    console.log(na); 
+		    
+		    let key = {
+        	    action: action,
+        	    resource: resource,
+        	    accessToken: jwt_requester,
+        	    na: na
+    		};
+    		
+		    CTStore.set(key, firstData);
+		    for (let [key, value] of CTStore) {
+    			console.log(`Clave: ${key}, Valor: ${value}`);
+		}
+		    
+                    // Request the access with the Capability Token
+                         // Request the access with the Capability Token
+    		if(json_body_get==""){
+                    const secondResponse = await fetch('http://peppdp-service/api/access-with-token', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            ct: firstData,  // Capability Token received
+                            sar: {
+                                action: "GET",
+                                resource: type
+                            }
+                        })
+                    });
+
+                    if (!secondResponse.ok) {
+                        info("Failed to fetch from second API: " + secondResponse.statusText);
+                        return null;
+                    }
+
+                    const secondData = await secondResponse.text();
+                    info("Response from the second API: " + secondData);
+                    result.entities = secondData; 
+                    return result;
+                    }else{
+                    
+                    const requestBody = {
+    ct: firstData,  // Capability Token received
+    sar: {
+        action: "GET",
+        resource: type
+    },
+    queryParameters:  JSON.parse(json_body_get)
+};
+console.log(JSON.parse(json_body_get));
+const secondResponse = await fetch('http://peppdp-service/api/access-with-token', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(requestBody)
+});
+
+/*
+                    	 const secondResponse = await fetch('http://peppdp-service/api/access-with-token', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: {
+                            "ct": firstData,  // Capability Token received
+                            "sar": {
+                                "action": "GET",
+                                "resource": type
+                            },
+                            "queryParameters": json_body_get
+                        }
+                    });*/
+
+                    if (!secondResponse.ok) {
+                        info("Failed to fetch from second API: " + secondResponse.statusText);
+                        return null;
+                    }
+
+                    const secondData = await secondResponse.text();
+                    info("Response from the second API: " + secondData);
+                    result.entities = secondData; 
+                    return result;
+                    }
+	} else {
+    		console.log("There are Capability Tokens stored, checking if the requester possess one of them...");
+    		let found = false;
+    		let capabilityToken = null;
+    CTStore.forEach((value, key) => {
+         let currentTime = Date.now();
+        // Check if the key matches the requester's information
+        if (key.action === "GET" && key.resource === type && key.accessToken === req_session.access_token && key.na >= currentTime) {
+            found = true;
+            console.log("Found Capability Token available for the requester");
+            
+            capabilityToken = value; 
+            console.log("Capability Token used:", capabilityToken);
+        }
+    });
+    if (found){  
+    		// Request the access with the Capability Token
+    		if(json_body_get==""){
+                    const secondResponse = await fetch('http://peppdp-service/api/access-with-token', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            ct: capabilityToken,  // Capability Token received
+                            sar: {
+                                action: "GET",
+                                resource: type
+                            }
+                        })
+                    });
+
+                    if (!secondResponse.ok) {
+                        info("Failed to fetch from second API: " + secondResponse.statusText);
+                        return null;
+                    }
+
+                    const secondData = await secondResponse.text();
+                    info("Response from the second API: " + secondData);
+                    result.entities = secondData; 
+                    return result;
+                    }else{
+                    	                    const requestBody = {
+    ct: capabilityToken,  // Capability Token received
+    sar: {
+        action: "GET",
+        resource: type
+    },
+    queryParameters:  JSON.parse(json_body_get)
+};
+console.log(JSON.parse(json_body_get));
+const secondResponse = await fetch('http://peppdp-service/api/access-with-token', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(requestBody)
+});
+
+                    if (!secondResponse.ok) {
+                        info("Failed to fetch from second API: " + secondResponse.statusText);
+                        return null;
+                    }
+
+                    const secondData = await secondResponse.text();
+                    info("Response from the second API: " + secondData);
+                    result.entities = secondData; 
+                    return result;
+                    }
+    }else{
+    	console.log("The Map doesn't contain a Capability Token for that requester, issuing a new Capability Token...");
+    	 // Request the resource 
+                    const firstResponse = await fetch('http://peppdp-service/api/connector-access-token', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            didSP: "tangoUser",
+                            sar: {
+                                action: "GET",
+                                resource: type
+                            },
+                            didRequester: "did:example:123456789abcdefghi",
+                            accessToken: req_session.access_token 
+                        })
+                    });
+
+  if (!firstResponse.ok) {
+                        info("Failed to fetch from first API: " + firstResponse.statusText);
+                        return null;
+                    }
+                    
+                    //Receive the Capability Token
+                    const firstData = await firstResponse.json();
+                    info("Response from the first API: " + JSON.stringify(firstData));
+
+		    //Store Capability Token in the map
+		    
+		    //key - [action, resource, jwt, na] 
+		     let ar = firstData.ar;
+		      let action, resource;
+        	if (Array.isArray(ar) && ar.length > 0) {
+            action = ar[0].action;      
+            resource = ar[0].resource;  
+            console.log("Action:", action);
+            console.log("Resource:", resource);
+        }    
+		   
+		    let jwt_requester= req_session.access_token;
+		    console.log(jwt_requester); 
+		    
+		    //value - [expiration]
+		    let na=firstData.na;
+		    console.log(na); 
+		    
+		    let key = {
+        	    action: action,
+        	    resource: resource,
+        	    accessToken: jwt_requester,
+        	    na: na
+    		};
+    		
+		    CTStore.set(key, firstData);
+		    for (let [key, value] of CTStore) {
+    			console.log(`Clave: ${key}, Valor: ${value}`);
+		}
+		    
+                    // Request the access with the Capability Token
+    		if(json_body_get==""){
+                    const secondResponse = await fetch('http://peppdp-service/api/access-with-token', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            ct: firstData,  // Capability Token received
+                            sar: {
+                                action: "GET",
+                                resource: type
+                            }
+                        })
+                    });
+
+                    if (!secondResponse.ok) {
+                        info("Failed to fetch from second API: " + secondResponse.statusText);
+                        return null;
+                    }
+
+                    const secondData = await secondResponse.text();
+                    info("Response from the second API: " + secondData);
+                    result.entities = secondData; 
+                    return result;
+                    }else{
+                    	                    const requestBody = {
+    ct: firstData,  // Capability Token received
+    sar: {
+        action: "GET",
+        resource: type
+    },
+    queryParameters:  JSON.parse(json_body_get)
+};
+console.log(JSON.parse(json_body_get));
+const secondResponse = await fetch('http://peppdp-service/api/access-with-token', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(requestBody)
+});
+
+                    if (!secondResponse.ok) {
+                        info("Failed to fetch from second API: " + secondResponse.statusText);
+                        return null;
+                    }
+
+                    const secondData = await secondResponse.text();
+                    info("Response from the second API: " + secondData);
+                    result.entities = secondData; 
+                    return result;
+                    }
+    	}
+     }   
+                  
     var path = req_session.cb_endpoint + '/entities?type='+type;
     var url = new URL(path);
 	try {
@@ -342,23 +889,75 @@ function render_error(res, user, error) {
 }
 
 async function evaluate_selfdescription(req_session) {
-	info("Evaluate session")
+    info("Evaluate session");
+
     if (req_session.access_token) {
-		info("The token " + req_session.access_token)
-		var decoded = jwt(req_session.access_token) 
-		if (decoded['verifiablePresentation']) {
-			info("Evaluate vp " + JSON.stringify(decoded['verifiablePresentation']))
-			// we have a gaia-x credential
-			for(const vp of decoded['verifiablePresentation']) {
-				info("Evaluate vc in vp " + JSON.stringify(vp))
-				if (vp['credentialSubject']['type'] === "gx:LegalParticipant") {
-					info("The subject " + JSON.stringify(vp['credentialSubject']))
-					return vp['credentialSubject']
-				}
-			}
-		}
-	}
-	info("No sd")
+        info("The token " + req_session.access_token);
+        var decoded = jwt(req_session.access_token);
+
+/*
+info("Connecting to PEP-PDP Service...");
+                    // Request the resource 
+                    const firstResponse = await fetch('http://peppdp.testing1.k8s-cluster.tango.rid-intrasoft.eu/api/connector-access-token', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            didSP: "tangoUser",
+                            sar: {
+                                action: "GET",
+                                resource: "/temperatura"
+                            },
+                            didRequester: "did",
+                            accessToken: req_session.access_token 
+                        })
+                    });
+
+  if (!firstResponse.ok) {
+                        info("Failed to fetch from first API: " + firstResponse.statusText);
+                        return null;
+                    }
+                    
+                    //Receive the Capability Token
+                    const firstData = await firstResponse.json();
+                    info("Response from the first API: " + JSON.stringify(firstData));
+
+                    // Request the access with the Capability Token
+                    const secondResponse = await fetch('http://peppdp.testing1.k8s-cluster.tango.rid-intrasoft.eu/api/access-with-token', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            ct: firstData,  // Capability Token received
+                            sar: {
+                                action: "GET",
+                                resource: "/temperatura"
+                            }
+                        })
+                    });
+
+                    if (!secondResponse.ok) {
+                        info("Failed to fetch from second API: " + secondResponse.statusText);
+                        return null;
+                    }
+
+                    const secondData = await secondResponse.text();
+                    info("Response from the second API: " + secondData);*/
+            if (decoded['verifiablePresentation']) {
+            info("Evaluate vp " + JSON.stringify(decoded['verifiablePresentation']));
+            for (const vp of decoded['verifiablePresentation']) {
+                info("Evaluate vc in vp " + JSON.stringify(vp));
+                if (vp['credentialSubject']['type'] === "gx:LegalParticipant") {
+                    info("The subject " + JSON.stringify(vp['credentialSubject']));
+                    return vp['credentialSubject'];
+                }
+            }
+        }
+    }
+
+    info("No sd");
     return null;
 }
 
@@ -391,6 +990,7 @@ async function evaluate_user(req_session) {
 	info("No token")
     return null;
 }
+
 
 async function getAccessToken(req_session, res, authCode) {
 	var formAttributes = {
@@ -560,6 +1160,7 @@ app.get('/portal', async (req, res) => {
     res.render('portal', {
 		title: config.title,
 		entity_id: '',
+		json_body: '',
 		user: user,
 		sd: sd,
 		trusted_participants: trusted_issuers,
@@ -617,6 +1218,7 @@ app.post('/sd', async(req, res) => {
 		res.render('portal', {
 			title: config.title,
 			entity_id: '',
+			        json_body: '',
 				user: user,
 				sd: sd,
 				registered: false,
@@ -630,6 +1232,7 @@ app.post('/sd', async(req, res) => {
 		res.render('portal', {
 			title: config.title,
 			entity_id: '',
+			        json_body: '',
 				user: user,
 				sd: sd,
 				registered: true,
@@ -653,14 +1256,18 @@ app.post('/portal', async (req, res) => {
     }
     
     const entity_id = req.body.entity_id;
+    const json_body = req.body.json_body;
+    const query_params = req.body.query_params;
 	const entity_type = req.body.entity_type;
+	const json_body_get  = req.body.json_body_get;
 	info("entity_type " + entity_type)
 	if (entity_type) {
-		const result = await get_entities(entity_type, req.session)
+		const result = await get_entities(entity_type, json_body_get, req.session)
 		if (result.err) {
 			render_error(res, user, 'Failure retrieving entities: ' + result.err)
 			return;
 		}
+		info("entities get: " + result.entities);
 		res.render('portal', {
 			title: config.title,
 			user: user,
@@ -682,15 +1289,42 @@ app.post('/portal', async (req, res) => {
 		}
 			
 		// Get attributes of delivery ID
-		const result = await get_delivery(entity_id, req.session)
+		const result = await get_delivery(entity_id, query_params, json_body, req.session)
 		if (result.err) {
 			render_error(res, user, 'Failure retrieving entity order: ' + result.err)
 			return;
 		}
 		
+		info("entities posted: " + result.delivery);
 		var entity = null;
 		var entity_attributes = [];
 		
+		if (result.delivery) {	
+			entity = result.delivery;
+			
+		}
+		
+		try {
+		  let entityString = result.delivery;
+
+        // Usar una expresión regular para extraer el bloque JSON si es necesario
+        let jsonMatch = entityString.match(/\{[\s\S]*\}/);
+
+        if (jsonMatch) {
+            entity = JSON.parse(jsonMatch[0]); // Parsear el JSON
+        } else {
+            throw new Error('No JSON found in response');
+        }
+
+    } catch (error) {
+        console.error('Error parsing JSON:', error);
+    }
+		
+  if (entity) {
+        // Convertir el objeto a una cadena JSON con formato
+        entity_string = JSON.stringify(entity, null, 2); 
+    }
+	
 		if (result.delivery) {			
 			entity = result.delivery;
 			entity_keys = Object.keys(entity);
@@ -703,8 +1337,8 @@ app.post('/portal', async (req, res) => {
 			entity_attributes = Object.entries(entity)
 		}
 		debug('Render portal page for delivery order: %o', entity_id);
-		debug('Keys: %o', entity_keys);
-		debug('Entity: %o', entity_attributes);
+		debug('Entity: %o', entity);
+	
 		res.render('portal', {
 			title: config.title,
 			user: user,

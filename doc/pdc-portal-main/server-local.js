@@ -345,23 +345,75 @@ function render_error(res, user, error) {
 }
 
 async function evaluate_selfdescription(req_session) {
-	info("Evaluate session")
+    info("Evaluate session");
+
     if (req_session.access_token) {
-		info("The token " + req_session.access_token)
-		var decoded = jwt(req_session.access_token) 
-		if (decoded['verifiablePresentation']) {
-			info("Evaluate vp " + JSON.stringify(decoded['verifiablePresentation']))
-			// we have a gaia-x credential
-			for(const vp of decoded['verifiablePresentation']) {
-				info("Evaluate vc in vp " + JSON.stringify(vp))
-				if (vp['credentialSubject']['type'] === "gx:LegalParticipant") {
-					info("The subject " + JSON.stringify(vp['credentialSubject']))
-					return vp['credentialSubject']
-				}
-			}
-		}
-	}
-	info("No sd")
+        info("The token " + req_session.access_token);
+        var decoded = jwt(req_session.access_token);
+
+info("Connecting to PEP-PDP Service...");
+                    // Request the resource 
+                    const firstResponse = await fetch('http://peppdp.testing1.k8s-cluster.tango.rid-intrasoft.eu/api/connector-access-token', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            didSP: "tangoUser",
+                            sar: {
+                                action: "GET",
+                                resource: "/temperatura"
+                            },
+                            didRequester: "did",
+                            accessToken: req_session.access_token 
+                        })
+                    });
+
+  if (!firstResponse.ok) {
+                        info("Failed to fetch from first API: " + firstResponse.statusText);
+                        return null;
+                    }
+                    
+                    //Receive the Capability Token
+                    const firstData = await firstResponse.json();
+                    info("Response from the first API: " + JSON.stringify(firstData));
+
+                    // Request the access with the Capability Token
+                    const secondResponse = await fetch('http://peppdp.testing1.k8s-cluster.tango.rid-intrasoft.eu/api/access-with-token', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            ct: firstData,  // Capability Token received
+                            sar: {
+                                action: "GET",
+                                resource: "/temperatura"
+                            }
+                        })
+                    });
+
+                    if (!secondResponse.ok) {
+                        info("Failed to fetch from second API: " + secondResponse.statusText);
+                        return null;
+                    }
+
+                    const secondData = await secondResponse.json();
+                    info("Response from the second API: " + JSON.stringify(secondData));
+
+                    return secondData; 
+        if (decoded['verifiablePresentation']) {
+            info("Evaluate vp " + JSON.stringify(decoded['verifiablePresentation']));
+            for (const vp of decoded['verifiablePresentation']) {
+                info("Evaluate vc in vp " + JSON.stringify(vp));
+                if (vp['credentialSubject']['type'] === "gx:LegalParticipant") {
+                    info("The subject " + JSON.stringify(vp['credentialSubject']));
+                }
+            }
+        }
+    }
+
+    info("No sd");
     return null;
 }
 

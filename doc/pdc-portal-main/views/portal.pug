@@ -11,20 +11,23 @@ block search
         form(action='/portal', method='POST')
           p.portal-delivery
             | 
-            label(for='entity_type') Type:
+            label(for='entity_type') Resource name and JSON Parameters for getting it:
             input(type='text', name='entity_type', id='entity_type', value=entity_type, size="50")
-            input(type='submit', value="Get entities") 
+            input(type='text', name='json_body_get', id='json_body_get', value=json_body_get, size="50")
+            input(type='submit', value="Get") 
         form(action='/portal', method='POST')
           p.portal-delivery
             | 
-            label(for='entity_id') #{input_label}:
+            label(for='entity_id') Resource name, JSON Parameters and JSON Body for updating it:
             input(type='text', name='entity_id', id='entity_id', value=entity_id, size="50")
-            input(type='submit', value=get_label) 
+            input(type='text', name='query_params', id='query_params', value=query_params, size="50")
+            input(type='text', name='json_body', id='json_body', value=json_body, size="50")
+            input(type='submit', value="Update") 
         hr
 block entities 
   div.content-delivery-row
     h2.delivery-id
-      #{entities}
+      |Resource: #{entities}
     each i in entities
        table.table
           tr
@@ -115,7 +118,7 @@ block sd
 block delivery  
   div.content-delivery-row
     h2.delivery-id
-      | #{delivery.id}
+      |Resource: #{delivery}
     table.table
       thead 
         tr
