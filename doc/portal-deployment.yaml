@@ -24,7 +24,7 @@ spec:
       containers:
       - name: pdc-portal
        # image: quay.io/i4trust/pdc-portal:2.9.0 
-        image:  nataliaborgonos123/pdc-portal:params
+        image:  nataliaborgonos123/pdc-portal:cleaning5
         imagePullPolicy: Always # Set image pull policy to Always
         ports:
         - containerPort: 7000

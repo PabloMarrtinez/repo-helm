@@ -13,7 +13,8 @@ block search
             | 
             label(for='entity_type') Resource name and JSON Parameters for getting it:
             input(type='text', name='entity_type', id='entity_type', value=entity_type, size="50")
-            input(type='text', name='json_body_get', id='json_body_get', value=json_body_get, size="50")
+            input(type='text', name='query_params_get', id='query_params_get', value=query_params_get, size="50")
+ 	    
             input(type='submit', value="Get") 
         form(action='/portal', method='POST')
           p.portal-delivery
@@ -22,6 +23,7 @@ block search
             input(type='text', name='entity_id', id='entity_id', value=entity_id, size="50")
             input(type='text', name='query_params', id='query_params', value=query_params, size="50")
             input(type='text', name='json_body', id='json_body', value=json_body, size="50")
+            
             input(type='submit', value="Update") 
         hr
 block entities 
