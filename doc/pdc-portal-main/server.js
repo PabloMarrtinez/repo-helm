@@ -182,9 +182,9 @@ async function fetchCapabilityToken(action, id, req_session) {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify({
-			didSP: "tangoUser",
+			didSP: "Leo-Free-Home-Standing-1 Hand-Phone",
 			sar: { action: action, resource: id },
-			didRequester: "did:example:123456789abcdefghi",
+			didRequester: "df429e49-23e1-4013-9962-091602afdd83",
 			accessToken: req_session.access_token
 		})
 	});
@@ -386,35 +386,6 @@ async function get_delivery(delivery_id, query_params, json_body, req_session) {
 
 		}
 
-		var path = req_session.cb_endpoint + '/entities/' + delivery_id;
-		var url = new URL(path);
-		url.searchParams.append('options', 'keyValues');
-
-		try {
-			debug('Requesting data for delivery order at GET: %o', url.toString());
-			const get_response = await fetch(url, {
-				method: 'GET',
-				headers: { 'Authorization': 'Bearer ' + req_session.access_token }
-			});
-			if (get_response.status != 200) {
-				const errorBody = await get_response.text();
-				result.err = `Access denied when retrieving delivery order: ${errorBody}`;
-				debug('Requesting delivery order data failed: %o', errorBody);
-				return result;
-			}
-
-			const res_body = await get_response.json();
-			if (!res_body) {
-				result.err = "Missing JSON response body";
-			} else {
-				debug('Received delivery order data: %j', res_body);
-				result.delivery = res_body;
-			}
-			return result;
-		} catch (e) {
-			result.err = e;
-			return result;
-		}
 	}
 }
 
@@ -549,37 +520,6 @@ async function get_entities(type, query_params_get, req_session) {
 			}
 		}
 	}
-
-	var path = req_session.cb_endpoint + '/entities?type=' + type;
-	var url = new URL(path);
-	try {
-		debug('Get request URL: %o', url);
-		const get_response = await fetch(url, {
-			method: 'GET',
-			headers: {
-				'Authorization': 'Bearer ' + req_session.access_token
-			}
-		});
-		if (get_response.status != 200) {
-			const errorBody = await get_response.text();
-			result.err = `Access denied when querying entities: ${errorBody}`;
-			debug('Received error when querying entities: %o', errorBody);
-			return result;
-		}
-		debug('GET successful');
-
-		const res_body = await get_response.json();
-		if (!res_body) {
-			result.err = "Missing JSON response body";
-		} else {
-			debug('Received entities: %j', res_body);
-			result.entities = res_body;
-		}
-		return result;
-	} catch (e) {
-		result.err = e;
-		return result;
-	}
 }
 
 async function register_sd(sd, req_session) {
@@ -682,57 +622,6 @@ async function evaluate_selfdescription(req_session) {
 	if (req_session.access_token) {
 		info("The token " + req_session.access_token);
 		var decoded = jwt(req_session.access_token);
-
-		/*
-		info("Connecting to PEP-PDP Service...");
-							// Request the resource 
-							const firstResponse = await fetch('http://peppdp.testing1.k8s-cluster.tango.rid-intrasoft.eu/api/connector-access-token', {
-								method: 'POST',
-								headers: {
-									'Content-Type': 'application/json'
-								},
-								body: JSON.stringify({
-									didSP: "tangoUser",
-									sar: {
-										action: "GET",
-										resource: "/temperatura"
-									},
-									didRequester: "did",
-									accessToken: req_session.access_token 
-								})
-							});
-		
-		  if (!firstResponse.ok) {
-								info("Failed to fetch from first API: " + firstResponse.statusText);
-								return null;
-							}
-						    
-							//Receive the Capability Token
-							const firstData = await firstResponse.json();
-							info("Response from the first API: " + JSON.stringify(firstData));
-		
-							// Request the access with the Capability Token
-							const secondResponse = await fetch('http://peppdp.testing1.k8s-cluster.tango.rid-intrasoft.eu/api/access-with-token', {
-								method: 'POST',
-								headers: {
-									'Content-Type': 'application/json'
-								},
-								body: JSON.stringify({
-									ct: firstData,  // Capability Token received
-									sar: {
-										action: "GET",
-										resource: "/temperatura"
-									}
-								})
-							});
-		
-							if (!secondResponse.ok) {
-								info("Failed to fetch from second API: " + secondResponse.statusText);
-								return null;
-							}
-		
-							const secondData = await secondResponse.text();
-							info("Response from the second API: " + secondData);*/
 		if (decoded['verifiablePresentation']) {
 			info("Evaluate vp " + JSON.stringify(decoded['verifiablePresentation']));
 			for (const vp of decoded['verifiablePresentation']) {
